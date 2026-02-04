@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon - Perpustakaan Salwa Nadira</title>
+    <title>Coming Soon - Mariah Afifa Library</title>
     <style>
         body {
             margin: 0;
@@ -11,38 +11,35 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #fbc2eb, #fda085);
+            font-family: "Segoe UI", Arial, Helvetica, sans-serif;
             text-align: center;
-            color: white;
+            color: #ffffff;
+            overflow: hidden;
         }
 
         .container {
-            animation: fadeIn 2s ease-in-out;
+            padding: 30px 25px;
+            animation: fadeIn 1.8s ease-in-out;
         }
 
         h1 {
-            font-size: 60px;
+            font-size: clamp(42px, 8vw, 70px);
             margin: 0;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-shadow: 
+                0 0 10px rgba(255,255,255,0.6),
+                0 0 25px rgba(255,182,193,0.6);
+            animation: float 4s ease-in-out infinite;
         }
 
         p {
-            font-size: 20px;
-            margin-top: 20px;
+            font-size: clamp(16px, 3vw, 20px);
+            margin-top: 22px;
+            line-height: 1.7;
+            opacity: 0.95;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>COMING SOON</h1>
-        <p>Website resmi Perpustakaan Salwa Nadira sedang dalam tahap pengembangan.<br>
-        Nantikan hadirnya ruang literasi digital yang inspiratif, informatif, dan penuh ilmu pengetahuan.</p>
-    </div>
-</body>
-</html>
+        .highlight {
+            font-weigh
