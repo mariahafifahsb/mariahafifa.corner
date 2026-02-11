@@ -110,4 +110,209 @@ nav a:hover::after{
     min-height:95vh;
     display:flex;
     align-items:center;
-    justify-content:center
+    justify-content:center;
+    text-align:center;
+    padding:40px 20px;
+    background:var(--bg-hero);
+    color:var(--text-light);
+}
+
+.hero h1{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(42px,7vw,66px);
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:720px;
+    margin:auto;
+    font-size:18px;
+    line-height:1.9;
+    margin-bottom:35px;
+}
+
+.hero button{
+    padding:14px 36px;
+    border-radius:30px;
+    border:none;
+    background:white;
+    color:var(--accent);
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.hero button:hover{
+    transform:translateY(-4px);
+    background:#e9f5ef;
+}
+
+/* KUTIPAN */
+.quote{
+    font-family:'Playfair Display',serif;
+    font-style:italic;
+    text-align:center;
+    font-size:22px;
+    max-width:800px;
+    margin:80px auto 40px;
+    opacity:0;
+    transform:translateY(30px);
+    transition:0.8s;
+}
+
+/* SECTION */
+section{
+    padding:70px 30px;
+    max-width:1100px;
+    margin:auto;
+}
+
+section h2{
+    font-family:'Playfair Display',serif;
+    text-align:center;
+    font-size:34px;
+    margin-bottom:50px;
+}
+
+/* KARTU LAYANAN */
+.books{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+.book{
+    background:var(--bg-card);
+    border-radius:18px;
+    padding:40px 25px;
+    text-align:center;
+    box-shadow:0 18px 40px var(--shadow);
+    transition:0.4s;
+    opacity:0;
+    transform:translateY(40px);
+}
+
+.book:hover{
+    transform:translateY(-10px);
+}
+
+.book h3{
+    font-family:'Playfair Display',serif;
+    color:var(--accent);
+    margin-bottom:15px;
+}
+
+.book p{
+    font-size:15px;
+    line-height:1.8;
+}
+
+/* FOOTER */
+footer{
+    background:var(--bg-footer);
+    text-align:center;
+    padding:30px 20px;
+    font-size:14px;
+}
+
+/* ANIMASI */
+.show{
+    opacity:1 !important;
+    transform:translateY(0) !important;
+}
+
+@media(max-width:600px){
+    header{
+        flex-direction:column;
+        gap:12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2>Perpustakaan Mariah Afifa</h2>
+    <nav>
+        <a href="#">Beranda</a>
+        <a href="#layanan">Koleksi</a>
+        <a href="#layanan">Layanan</a>
+        <a href="#">Tentang</a>
+        <button class="toggle" onclick="toggleDark()">Mode</button>
+    </nav>
+</header>
+
+<section class="hero">
+    <div>
+        <h1>Ruang Nyaman untuk Membaca</h1>
+        <p>
+            Perpustakaan Mariah Afifa merupakan ruang baca digital yang menghadirkan
+            pengetahuan, referensi, dan inspirasi dalam satu tempat. 
+            Tempat untuk membaca, belajar, dan berkembang setiap hari.
+        </p>
+        <button onclick="scrollToServices()">Jelajahi Perpustakaan</button>
+    </div>
+</section>
+
+<div class="quote">
+    "Seorang pembaca hidup seribu kehidupan sebelum ia meninggal."
+</div>
+
+<section id="layanan">
+    <h2>Layanan Perpustakaan</h2>
+    <div class="books">
+        <div class="book">
+            <h3>Koleksi Digital</h3>
+            <p>
+                Menyediakan buku elektronik, jurnal, dan referensi akademik 
+                untuk mendukung kegiatan belajar dan penelitian.
+            </p>
+        </div>
+
+        <div class="book">
+            <h3>Ruang Baca</h3>
+            <p>
+                Lingkungan baca yang tenang dan nyaman sehingga 
+                pengguna dapat fokus dan produktif.
+            </p>
+        </div>
+
+        <div class="book">
+            <h3>Layanan Informasi</h3>
+            <p>
+                Bantuan penelusuran informasi dan referensi 
+                yang relevan sesuai kebutuhan pengguna.
+            </p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 Perpustakaan Mariah Afifa. Seluruh hak cipta dilindungi.
+</footer>
+
+<script>
+function toggleDark(){
+    document.body.classList.toggle("dark");
+}
+
+function scrollToServices(){
+    document.getElementById("layanan").scrollIntoView({behavior:"smooth"});
+}
+
+const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+});
+
+document.querySelectorAll(".book, .quote").forEach(el=>{
+    observer.observe(el);
+});
+</script>
+
+</body>
+</html>
