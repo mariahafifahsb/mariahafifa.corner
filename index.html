@@ -1,32 +1,51 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Perpustakaan Mariah Afifa</title>
+<title>Mariah Afifa Library</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 :root{
-    --bg-main:#f2fbf6;
+    --bg-main:#fff5f8;
     --bg-card:#ffffff;
-    --bg-hero:linear-gradient(135deg,#b7e4c7,#95d5b2);
-    --bg-header:rgba(223, 247, 233, 0.9);
-    --bg-footer:#d8f3dc;
-    --text-main:#1b4332;
+    --bg-hero:linear-gradient(135deg,#fbc2eb,#fda085);
+    --bg-header:rgba(255,235,243,0.9);
+    --bg-footer:#ffe3ed;
+    --text-main:#4b2433;
     --text-light:#ffffff;
-    --accent:#40916c;
-    --shadow:rgba(0,0,0,0.08);
+    --accent:#e86a92;
+    --shadow:rgba(0,0,0,0.1);
 }
+
+body.dark{
+    --bg-main:#181114;
+    --bg-card:#24161d;
+    --bg-hero:linear-gradient(135deg,#3a1d2b,#6b2c47);
+    --bg-header:rgba(36,22,29,0.9);
+    --bg-footer:#24161d;
+    --text-main:#f5dbe6;
+    --accent:#ff9fbf;
+    --shadow:rgba(0,0,0,0.45);
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+*{box-sizing:border-box;}
 
 body{
     margin:0;
     font-family:'Poppins',sans-serif;
     background:var(--bg-main);
     color:var(--text-main);
+    transition:0.4s;
 }
 
+/* HEADER */
 header{
     position:sticky;
     top:0;
@@ -36,6 +55,7 @@ header{
     justify-content:space-between;
     align-items:center;
     padding:18px 42px;
+    z-index:10;
 }
 
 header h2{
@@ -45,6 +65,7 @@ header h2{
 
 nav{
     display:flex;
+    align-items:center;
     gap:22px;
 }
 
@@ -52,11 +73,36 @@ nav a{
     text-decoration:none;
     color:var(--text-main);
     font-weight:500;
+    position:relative;
+}
+
+nav a::after{
+    content:"";
+    position:absolute;
+    width:0%;
+    height:2px;
+    left:0;
+    bottom:-4px;
+    background:var(--accent);
+    transition:0.3s;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+.toggle{
+    border:none;
+    background:var(--accent);
+    color:white;
+    padding:8px 14px;
+    border-radius:20px;
+    cursor:pointer;
 }
 
 /* HERO */
 .hero{
-    min-height:70vh;
+    min-height:95vh;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -64,8 +110,216 @@ nav a{
     padding:40px 20px;
     background:var(--bg-hero);
     color:var(--text-light);
+    position:relative;
+    overflow:hidden;
+}
+
+/* Sparkle effect */
+.hero::before{
+    content:"✨ ✨ ✨ ✨ ✨";
+    position:absolute;
+    top:20%;
+    left:10%;
+    font-size:28px;
+    opacity:0.2;
+    animation:float 6s infinite ease-in-out;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-20px);}
+    100%{transform:translateY(0);}
 }
 
 .hero h1{
     font-family:'Playfair Display',serif;
-    font-size:48px;
+    font-size:clamp(42px,7vw,66px);
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:720px;
+    margin:auto;
+    font-size:18px;
+    line-height:1.9;
+    margin-bottom:35px;
+}
+
+.hero button{
+    padding:14px 36px;
+    border-radius:30px;
+    border:none;
+    background:white;
+    color:var(--accent);
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.hero button:hover{
+    transform:translateY(-4px);
+    background:#ffe3ed;
+}
+
+/* QUOTE */
+.quote{
+    font-family:'Playfair Display',serif;
+    font-style:italic;
+    text-align:center;
+    font-size:22px;
+    max-width:800px;
+    margin:80px auto 40px;
+    opacity:0;
+    transform:translateY(30px);
+    transition:0.8s;
+}
+
+/* SECTION */
+section{
+    padding:70px 30px;
+    max-width:1100px;
+    margin:auto;
+}
+
+section h2{
+    font-family:'Playfair Display',serif;
+    text-align:center;
+    font-size:34px;
+    margin-bottom:50px;
+}
+
+/* BOOK CARDS */
+.books{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+.book{
+    background:var(--bg-card);
+    border-radius:18px;
+    padding:40px 25px;
+    text-align:center;
+    box-shadow:0 18px 40px var(--shadow);
+    transition:0.4s;
+    opacity:0;
+    transform:translateY(40px);
+}
+
+.book::before{
+    content:"📖";
+    font-size:36px;
+    display:block;
+    margin-bottom:15px;
+}
+
+.book:hover{
+    transform:translateY(-10px);
+}
+
+.book h3{
+    font-family:'Playfair Display',serif;
+    color:var(--accent);
+    margin-bottom:15px;
+}
+
+/* FOOTER */
+footer{
+    background:var(--bg-footer);
+    text-align:center;
+    padding:30px 20px;
+    font-size:14px;
+}
+
+/* Animation Active */
+.show{
+    opacity:1 !important;
+    transform:translateY(0) !important;
+}
+
+@media(max-width:600px){
+    header{
+        flex-direction:column;
+        gap:12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2>Mariah Afifa Library</h2>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#services">Collections</a>
+        <a href="#services">Services</a>
+        <a href="#">About</a>
+        <button class="toggle" onclick="toggleDark()">🌙</button>
+    </nav>
+</header>
+
+<section class="hero">
+    <div>
+        <h1>A Home for Books</h1>
+        <p>
+            Mariah Afifa Library is a warm digital reading space where stories,
+            knowledge, and curiosity meet. A place to read, learn,
+            and grow—one page at a time 📚✨
+        </p>
+        <button onclick="scrollToServices()">Explore the Library</button>
+    </div>
+</section>
+
+<div class="quote">
+    “A reader lives a thousand lives before they die.”
+</div>
+
+<section id="services">
+    <h2>Library Services</h2>
+    <div class="books">
+        <div class="book">
+            <h3>Digital Collection</h3>
+            <p>Explore curated digital books, journals, and academic references designed to support learning and inspiration.</p>
+        </div>
+
+        <div class="book">
+            <h3>Reading Space</h3>
+            <p>A calm and cozy reading environment that brings the feeling of a library wherever you are.</p>
+        </div>
+
+        <div class="book">
+            <h3>Information Service</h3>
+            <p>Friendly assistance to help you find the right information, sources, and reading materials.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 • Mariah Afifa Library — Where Every Page Matters 💗
+</footer>
+
+<script>
+function toggleDark(){
+    document.body.classList.toggle("dark");
+}
+
+function scrollToServices(){
+    document.getElementById("services").scrollIntoView({behavior:"smooth"});
+}
+
+const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+});
+
+document.querySelectorAll(".book, .quote").forEach(el=>{
+    observer.observe(el);
+});
+</script>
+
+</body>
+</html>
