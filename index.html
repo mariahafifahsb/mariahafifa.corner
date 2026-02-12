@@ -6,8 +6,6 @@
 <title>Mariah Afifa HSB | Digital Library</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<!-- ICON CDN -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -26,44 +24,62 @@
 
 body{
     font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+/* NAVIGATION */
+nav{
+    position:fixed;
+    width:100%;
+    padding:20px 60px;
+    display:flex;
+    justify-content:space-between;
+    background:white;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    z-index:1000;
+}
+
+nav h2{
+    font-family:'Playfair Display',serif;
+    color:var(--dark);
+}
+
+nav a{
+    text-decoration:none;
+    margin-left:25px;
+    color:var(--dark);
+    font-weight:500;
+}
+
+/* HERO SECTION */
+.hero{
     height:100vh;
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:space-between;
+    padding:0 80px;
     background:linear-gradient(135deg,#1b4332,#2d6a4f,#52b788);
     color:white;
 }
 
-/* CONTAINER */
-.container{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    width:85%;
-    max-width:1200px;
-}
-
-/* TEXT AREA */
-.text-area{
+.hero-text{
     max-width:600px;
 }
 
-.text-area h1{
+.hero-text h1{
     font-family:'Playfair Display',serif;
     font-size:55px;
     line-height:1.2;
     margin-bottom:20px;
 }
 
-.text-area span{
+.hero-text span{
     color:#d8f3dc;
 }
 
-.text-area p{
-    font-size:18px;
-    line-height:1.6;
+.hero-text p{
+    line-height:1.7;
     margin-bottom:30px;
-    opacity:0.9;
 }
 
 /* ICON BUTTONS */
@@ -85,30 +101,56 @@ body{
     transition:0.3s;
 }
 
-.icon-btn i{
-    font-size:18px;
-}
-
 .icon-btn:hover{
     background:#d8f3dc;
     transform:translateY(-3px);
 }
 
 /* IMAGE */
-.image-area img{
+.hero-image img{
     width:350px;
-    border-radius:30px;
+    border-radius:25px;
     box-shadow:0 20px 40px rgba(0,0,0,0.3);
+}
+
+/* SECTION BELOW */
+section{
+    padding:120px 80px;
+    text-align:center;
+    background:linear-gradient(to bottom,#d8f3dc,#b7e4c7);
+}
+
+section h2{
+    font-family:'Playfair Display',serif;
+    font-size:35px;
+    margin-bottom:20px;
+    color:var(--dark);
+}
+
+section p{
+    max-width:800px;
+    margin:auto;
+    line-height:1.7;
+    color:#333;
+}
+
+/* FOOTER */
+footer{
+    background:var(--dark);
+    color:white;
+    text-align:center;
+    padding:25px;
 }
 
 /* RESPONSIVE */
 @media(max-width:900px){
-    .container{
+    .hero{
         flex-direction:column;
         text-align:center;
+        padding-top:120px;
     }
 
-    .image-area{
+    .hero-image{
         margin-top:40px;
     }
 }
@@ -117,21 +159,27 @@ body{
 
 <body>
 
-<div class="container">
+<!-- NAV -->
+<nav>
+    <h2>Mariah Digital Library</h2>
+    <div>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+    </div>
+</nav>
 
-    <!-- TEXT -->
-    <div class="text-area">
+<!-- HERO -->
+<div class="hero" id="home">
+    <div class="hero-text">
         <h1>
             Mariah Afifa HSB <br>
             <span>Digital Library</span>
         </h1>
 
         <p>
-            Selamat datang di ruang digital personal saya.
-            Website ini merepresentasikan identitas akademik saya
-            sebagai mahasiswa Perpustakaan dan Sains Informasi,
-            yang berfokus pada literasi, manajemen informasi,
-            dan transformasi perpustakaan berbasis teknologi.
+            Sebuah ruang literasi digital yang merepresentasikan identitas akademik,
+            profesionalitas, serta komitmen terhadap pengembangan
+            Perpustakaan dan Sains Informasi berbasis teknologi.
         </p>
 
         <div class="icons">
@@ -139,6 +187,7 @@ body{
             <!-- CV ICON -->
             <a href="https://drive.google.com/file/d/1Kjqpo886QBpCmjs8-65HxdubXczh5DCM/view?usp=sharing"
                target="_blank"
+               rel="noopener noreferrer"
                class="icon-btn">
                <i class="fa-solid fa-file-lines"></i>
                CV
@@ -147,6 +196,7 @@ body{
             <!-- INSTAGRAM ICON -->
             <a href="https://www.instagram.com/afifaahsb?igsh=MXQzeXRjcXRuNTIwOA=="
                target="_blank"
+               rel="noopener noreferrer"
                class="icon-btn">
                <i class="fa-brands fa-instagram"></i>
                Instagram
@@ -155,12 +205,27 @@ body{
         </div>
     </div>
 
-    <!-- IMAGE -->
-    <div class="image-area">
+    <div class="hero-image">
         <img src="foto.jpg" alt="Afifa Image">
     </div>
-
 </div>
+
+<!-- SCROLL SECTION -->
+<section id="about">
+    <h2>Konsep Digital Library</h2>
+    <p>
+        Website ini dirancang sebagai representasi identitas personal branding
+        dalam bidang Perpustakaan dan Sains Informasi. Digital Library ini
+        menegaskan kepemilikan, visi akademik, serta arah pengembangan
+        literasi dan manajemen informasi berbasis teknologi digital.
+        Halaman ini masih berupa gambaran awal sebelum dikembangkan
+        menjadi sistem digital library yang lebih komprehensif.
+    </p>
+</section>
+
+<footer>
+© 2026 | Official Website of Mariah Afifa HSB Digital Library
+</footer>
 
 </body>
 </html>
