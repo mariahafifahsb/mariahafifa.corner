@@ -51,7 +51,7 @@ nav a{
     font-weight:500;
 }
 
-/* HERO SECTION */
+/* HERO */
 .hero{
     height:100vh;
     display:flex;
@@ -69,7 +69,6 @@ nav a{
 .hero-text h1{
     font-family:'Playfair Display',serif;
     font-size:55px;
-    line-height:1.2;
     margin-bottom:20px;
 }
 
@@ -82,7 +81,6 @@ nav a{
     margin-bottom:30px;
 }
 
-/* ICON BUTTONS */
 .icons{
     display:flex;
     gap:20px;
@@ -106,14 +104,12 @@ nav a{
     transform:translateY(-3px);
 }
 
-/* IMAGE */
 .hero-image img{
     width:350px;
     border-radius:25px;
     box-shadow:0 20px 40px rgba(0,0,0,0.3);
 }
 
-/* SECTION BELOW */
 section{
     padding:120px 80px;
     text-align:center;
@@ -134,7 +130,6 @@ section p{
     color:#333;
 }
 
-/* FOOTER */
 footer{
     background:var(--dark);
     color:white;
@@ -142,7 +137,6 @@ footer{
     padding:25px;
 }
 
-/* RESPONSIVE */
 @media(max-width:900px){
     .hero{
         flex-direction:column;
@@ -159,7 +153,6 @@ footer{
 
 <body>
 
-<!-- NAV -->
 <nav>
     <h2>Mariah Digital Library</h2>
     <div>
@@ -168,7 +161,6 @@ footer{
     </div>
 </nav>
 
-<!-- HERO -->
 <div class="hero" id="home">
     <div class="hero-text">
         <h1>
@@ -183,8 +175,6 @@ footer{
         </p>
 
         <div class="icons">
-
-            <!-- CV ICON -->
             <a href="https://drive.google.com/file/d/1Kjqpo886QBpCmjs8-65HxdubXczh5DCM/view?usp=sharing"
                target="_blank"
                rel="noopener noreferrer"
@@ -193,7 +183,6 @@ footer{
                CV
             </a>
 
-            <!-- INSTAGRAM ICON -->
             <a href="https://www.instagram.com/afifaahsb?igsh=MXQzeXRjcXRuNTIwOA=="
                target="_blank"
                rel="noopener noreferrer"
@@ -201,16 +190,15 @@ footer{
                <i class="fa-brands fa-instagram"></i>
                Instagram
             </a>
-
         </div>
     </div>
 
     <div class="hero-image">
-        <img src="foto.jpg" alt="Afifa Image">
+        <img src="https://drive.google.com/uc?export=view&id=1qNh97ghbclVHfNcXUBw6kQozHWS8mt1b" 
+             alt="Afifa Image">
     </div>
 </div>
 
-<!-- SCROLL SECTION -->
 <section id="about">
     <h2>Konsep Digital Library</h2>
     <p>
@@ -218,8 +206,6 @@ footer{
         dalam bidang Perpustakaan dan Sains Informasi. Digital Library ini
         menegaskan kepemilikan, visi akademik, serta arah pengembangan
         literasi dan manajemen informasi berbasis teknologi digital.
-        Halaman ini masih berupa gambaran awal sebelum dikembangkan
-        menjadi sistem digital library yang lebih komprehensif.
     </p>
 </section>
 
