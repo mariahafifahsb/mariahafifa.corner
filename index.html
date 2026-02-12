@@ -51,25 +51,25 @@ nav a{
     font-weight:500;
 }
 
-/* HERO SECTION */
+/* HERO */
 .hero{
     height:100vh;
     display:flex;
     align-items:center;
-    justify-content:space-between;
+    justify-content:center;
+    text-align:center;
     padding:0 80px;
     background:linear-gradient(135deg,#1b4332,#2d6a4f,#52b788);
     color:white;
 }
 
 .hero-text{
-    max-width:600px;
+    max-width:700px;
 }
 
 .hero-text h1{
     font-family:'Playfair Display',serif;
     font-size:55px;
-    line-height:1.2;
     margin-bottom:20px;
 }
 
@@ -85,6 +85,7 @@ nav a{
 /* ICON BUTTONS */
 .icons{
     display:flex;
+    justify-content:center;
     gap:20px;
 }
 
@@ -106,32 +107,62 @@ nav a{
     transform:translateY(-3px);
 }
 
-/* IMAGE */
-.hero-image img{
-    width:350px;
-    border-radius:25px;
-    box-shadow:0 20px 40px rgba(0,0,0,0.3);
-}
-
-/* SECTION BELOW */
-section{
+/* ABOUT SECTION */
+.about-section{
     padding:120px 80px;
-    text-align:center;
     background:linear-gradient(to bottom,#d8f3dc,#b7e4c7);
 }
 
-section h2{
+.about-container{
+    display:flex;
+    align-items:center;
+    gap:60px;
+    max-width:1100px;
+    margin:auto;
+}
+
+.about-image img{
+    width:300px;
+    border-radius:25px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.2);
+}
+
+.about-text h2{
     font-family:'Playfair Display',serif;
     font-size:35px;
     margin-bottom:20px;
     color:var(--dark);
 }
 
-section p{
+.about-text p{
+    line-height:1.8;
+    color:#333;
+}
+
+/* VIDEO SECTION */
+.video-section{
+    padding:100px 80px;
+    text-align:center;
+    background:white;
+}
+
+.video-section h2{
+    font-family:'Playfair Display',serif;
+    font-size:35px;
+    margin-bottom:30px;
+    color:var(--dark);
+}
+
+.video-wrapper{
     max-width:800px;
     margin:auto;
-    line-height:1.7;
-    color:#333;
+}
+
+.video-wrapper iframe{
+    width:100%;
+    height:450px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
 }
 
 /* FOOTER */
@@ -144,14 +175,13 @@ footer{
 
 /* RESPONSIVE */
 @media(max-width:900px){
-    .hero{
+    .about-container{
         flex-direction:column;
         text-align:center;
-        padding-top:120px;
     }
 
-    .hero-image{
-        margin-top:40px;
+    .video-wrapper iframe{
+        height:300px;
     }
 }
 </style>
@@ -164,7 +194,8 @@ footer{
     <h2>Mariah Digital Library</h2>
     <div>
         <a href="#home">Home</a>
-        <a href="#about">About</a>
+        <a href="#about">Konsep</a>
+        <a href="#video">Video</a>
     </div>
 </nav>
 
@@ -183,44 +214,58 @@ footer{
         </p>
 
         <div class="icons">
-
-            <!-- CV ICON -->
             <a href="https://drive.google.com/file/d/1Kjqpo886QBpCmjs8-65HxdubXczh5DCM/view?usp=sharing"
                target="_blank"
-               rel="noopener noreferrer"
                class="icon-btn">
                <i class="fa-solid fa-file-lines"></i>
                CV
             </a>
 
-            <!-- INSTAGRAM ICON -->
             <a href="https://www.instagram.com/afifaahsb?igsh=MXQzeXRjcXRuNTIwOA=="
                target="_blank"
-               rel="noopener noreferrer"
                class="icon-btn">
                <i class="fa-brands fa-instagram"></i>
                Instagram
             </a>
-
         </div>
-    </div>
-
-    <div class="hero-image">
-        <img src="Afifa image.JPG" alt="Afifa Image">
     </div>
 </div>
 
-<!-- SCROLL SECTION -->
-<section id="about">
-    <h2>Konsep Digital Library</h2>
-    <p>
-        Website ini dirancang sebagai representasi identitas personal branding
-        dalam bidang Perpustakaan dan Sains Informasi. Digital Library ini
-        menegaskan kepemilikan, visi akademik, serta arah pengembangan
-        literasi dan manajemen informasi berbasis teknologi digital.
-        Halaman ini masih berupa gambaran awal sebelum dikembangkan
-        menjadi sistem digital library yang lebih komprehensif.
-    </p>
+<!-- ABOUT (Foto di kiri Konsep) -->
+<section class="about-section" id="about">
+    <div class="about-container">
+
+        <div class="about-image">
+            <img src="Afifa image.JPG" alt="Afifa Image">
+        </div>
+
+        <div class="about-text">
+            <h2>Konsep Digital Library</h2>
+            <p>
+                Website ini dirancang sebagai representasi identitas personal branding
+                dalam bidang Perpustakaan dan Sains Informasi. Digital Library ini
+                menegaskan kepemilikan, visi akademik, serta arah pengembangan
+                literasi dan manajemen informasi berbasis teknologi digital.
+                Halaman ini masih berupa gambaran awal sebelum dikembangkan
+                menjadi sistem digital library yang lebih komprehensif.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- VIDEO SECTION -->
+<section class="video-section" id="video">
+    <h2>Video Presentasi Digital Library</h2>
+
+    <div class="video-wrapper">
+        <!-- Ganti link setelah embed/ dengan ID video YouTube kamu -->
+        <iframe 
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+            frameborder="0" 
+            allowfullscreen>
+        </iframe>
+    </div>
 </section>
 
 <footer>
