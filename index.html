@@ -1,171 +1,230 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Me | Mariah Afifa Hsb</title>
+<title>Mariah Afifa HSB | Digital Library</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-body{
+:root{
+    --dark:#1b4332;
+    --mid:#2d6a4f;
+    --light:#95d5b2;
+    --accent:#52b788;
+}
+
+*{
     margin:0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg,#0f2027,#1f4037,#2ecc71);
-    color:white;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
     scroll-behavior:smooth;
 }
 
+/* NAVIGATION */
 nav{
-    position: fixed;
+    position:fixed;
     width:100%;
-    background: rgba(0,0,0,0.6);
-    padding:15px;
-    text-align:center;
+    padding:20px 60px;
+    display:flex;
+    justify-content:space-between;
+    background:white;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
     z-index:1000;
 }
 
+nav h2{
+    font-family:'Playfair Display',serif;
+    color:var(--dark);
+}
+
 nav a{
-    color:white;
-    margin:0 20px;
     text-decoration:none;
-    font-weight:bold;
-    letter-spacing:1px;
+    margin-left:25px;
+    color:var(--dark);
+    font-weight:500;
 }
 
-nav a:hover{
-    color:#7CFC00;
-}
-
-section{
-    min-height:100vh;
-    padding:120px 10%;
-}
-
-.home{
+/* HERO SECTION */
+.hero{
+    height:100vh;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    flex-wrap:wrap;
+    padding:0 80px;
+    background:linear-gradient(135deg,#1b4332,#2d6a4f,#52b788);
+    color:white;
 }
 
-.home-text{
+.hero-text{
     max-width:600px;
 }
 
-.home-text h1{
-    font-size:50px;
-    background: linear-gradient(to right,#7CFC00,#00ffcc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.hero-text h1{
+    font-family:'Playfair Display',serif;
+    font-size:55px;
+    line-height:1.2;
+    margin-bottom:20px;
 }
 
-.home-text p{
-    font-size:18px;
-    margin-top:20px;
-    line-height:1.6;
+.hero-text span{
+    color:#d8f3dc;
 }
 
-.profile-img img{
-    width:350px;
-    border-radius:20px;
-    box-shadow:0 0 30px rgba(0,255,100,0.5);
+.hero-text p{
+    line-height:1.7;
+    margin-bottom:30px;
 }
 
+/* ICON BUTTONS */
 .icons{
-    margin-top:30px;
+    display:flex;
+    gap:20px;
 }
 
-.icons a{
-    display:inline-block;
-    margin-right:20px;
+.icon-btn{
+    display:flex;
+    align-items:center;
+    gap:10px;
     padding:12px 25px;
-    border-radius:30px;
-    background:linear-gradient(to right,#00c853,#64dd17);
-    color:white;
+    border-radius:40px;
+    background:white;
+    color:var(--dark);
     text-decoration:none;
-    font-weight:bold;
+    font-weight:500;
     transition:0.3s;
 }
 
-.icons a:hover{
-    transform:scale(1.1);
+.icon-btn:hover{
+    background:#d8f3dc;
+    transform:translateY(-3px);
 }
 
-.about, .video{
+/* IMAGE */
+.hero-image img{
+    width:350px;
+    border-radius:25px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.3);
+}
+
+/* SECTION BELOW */
+section{
+    padding:120px 80px;
     text-align:center;
+    background:linear-gradient(to bottom,#d8f3dc,#b7e4c7);
 }
 
-.video iframe{
-    margin-top:30px;
-    width:80%;
-    height:400px;
-    border-radius:20px;
+section h2{
+    font-family:'Playfair Display',serif;
+    font-size:35px;
+    margin-bottom:20px;
+    color:var(--dark);
 }
 
+section p{
+    max-width:800px;
+    margin:auto;
+    line-height:1.7;
+    color:#333;
+}
+
+/* FOOTER */
 footer{
+    background:var(--dark);
+    color:white;
     text-align:center;
-    padding:20px;
-    background:black;
+    padding:25px;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .hero{
+        flex-direction:column;
+        text-align:center;
+        padding-top:120px;
+    }
+
+    .hero-image{
+        margin-top:40px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- Audio -->
-<audio autoplay>
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-</audio>
-
+<!-- NAV -->
 <nav>
-<a href="#home">Home</a>
-<a href="#about">About Me</a>
-<a href="#video">Video</a>
+    <h2>Mariah Digital Library</h2>
+    <div>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+    </div>
 </nav>
 
-<!-- HOME -->
-<section class="home" id="home">
-<div class="home-text">
-<h1>Mariah Afifa Hsb</h1>
-<p>
-Hello, I am Mariah Afifa Hsb, the creator of this personal website and 
-the developer behind a modern library-based web platform. 
-This page represents my identity, creativity, and academic focus 
-in Library and Information Science. Through this website, I aim to 
-combine technology, literacy, and personal branding into one integrated concept.
-</p>
+<!-- HERO -->
+<div class="hero" id="home">
+    <div class="hero-text">
+        <h1>
+            Mariah Afifa HSB <br>
+            <span>Digital Library</span>
+        </h1>
 
-<div class="icons">
-<a href="https://drive.google.com/file/d/1Kjqpo886QBpCmjs8-65HxdubXczh5DCM/preview" target="_blank">📄 CV</a>
+        <p>
+            Sebuah ruang literasi digital yang merepresentasikan identitas akademik,
+            profesionalitas, serta komitmen terhadap pengembangan
+            Perpustakaan dan Sains Informasi berbasis teknologi.
+        </p>
 
-<a href="https://www.instagram.com/afifaahsb?igsh=MXQzeXRjcXRuNTIwOA==" target="_blank">📷 Instagram</a>
+        <div class="icons">
+
+            <!-- CV ICON -->
+            <a href="https://drive.google.com/file/d/1Kjqpo886QBpCmjs8-65HxdubXczh5DCM/view?usp=sharing"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="icon-btn">
+               <i class="fa-solid fa-file-lines"></i>
+               CV
+            </a>
+
+            <!-- INSTAGRAM ICON -->
+            <a href="https://www.instagram.com/afifaahsb?igsh=MXQzeXRjcXRuNTIwOA=="
+               target="_blank"
+               rel="noopener noreferrer"
+               class="icon-btn">
+               <i class="fa-brands fa-instagram"></i>
+               Instagram
+            </a>
+
+        </div>
+    </div>
+
+    <div class="hero-image">
+        <img src="Afifa image.jpg" alt="Afifa Image">
+    </div>
 </div>
-</div>
 
-<div class="profile-img">
-<img src="https://drive.google.com/uc?export=view&id=1qNh97ghbclVHfNcXUBw6kQozHWS8mt1b" alt="Afifa Image">
-</div>
-</section>
-
-<!-- ABOUT -->
-<section class="about" id="about">
-<h2>About This Website</h2>
-<p>
-This website is designed as a personal identity platform. 
-It highlights my role as a student and web creator who builds 
-library-themed digital platforms. The concept focuses on self-branding, 
-academic development, and digital literacy innovation.
-</p>
-</section>
-
-<!-- VIDEO -->
-<section class="video" id="video">
-<h2>Library & Inspiration Video</h2>
-<iframe src="https://www.youtube.com/embed/1z6GkF9p9pE" 
-allowfullscreen></iframe>
+<!-- SCROLL SECTION -->
+<section id="about">
+    <h2>Konsep Digital Library</h2>
+    <p>
+        Website ini dirancang sebagai representasi identitas personal branding
+        dalam bidang Perpustakaan dan Sains Informasi. Digital Library ini
+        menegaskan kepemilikan, visi akademik, serta arah pengembangan
+        literasi dan manajemen informasi berbasis teknologi digital.
+        Halaman ini masih berupa gambaran awal sebelum dikembangkan
+        menjadi sistem digital library yang lebih komprehensif.
+    </p>
 </section>
 
 <footer>
-© 2026 Mariah Afifa Hsb | About Me Website
+© 2026 | Official Website of Mariah Afifa HSB Digital Library
 </footer>
 
 </body>
