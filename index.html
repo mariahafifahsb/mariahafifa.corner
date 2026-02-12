@@ -9,12 +9,10 @@
 
 <style>
 :root{
-    --green1:#d8f3dc;
-    --green2:#b7e4c7;
-    --green3:#95d5b2;
-    --green4:#74c69d;
+    --green-overlay: rgba(45,106,79,0.75);
+    --green-light:#d8f3dc;
+    --green-mid:#b7e4c7;
     --accent:#2d6a4f;
-    --dark:#1b4332;
     --white:#ffffff;
 }
 
@@ -26,8 +24,7 @@
 
 body{
     font-family:'Poppins',sans-serif;
-    background:linear-gradient(to bottom,var(--green1),var(--green2),var(--green3),var(--green4));
-    color:var(--dark);
+    scroll-behavior:smooth;
 }
 
 /* HEADER */
@@ -40,7 +37,8 @@ header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background:rgba(255,255,255,0.85);
+    background:rgba(255,255,255,0.9);
+    z-index:10;
 }
 
 header h2{
@@ -55,66 +53,61 @@ nav{
 
 nav a{
     text-decoration:none;
-    color:var(--dark);
+    color:#1b4332;
     font-weight:500;
 }
 
-/* SECTION */
-section{
-    min-height:100vh;
-    padding:140px 60px 80px 60px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-/* HERO */
+/* HERO SECTION */
 .hero{
+    height:100vh;
+    background:
+        linear-gradient(var(--green-overlay), var(--green-overlay)),
+        url("https://images.unsplash.com/photo-1512820790803-83ca734da794") center/cover no-repeat;
     display:flex;
-    flex-wrap:wrap;
-    gap:40px;
-    align-items:center;
     justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:var(--white);
+    padding:20px;
 }
 
-.hero-text{
-    max-width:500px;
-}
-
-.hero-text h1{
+.hero h1{
     font-family:'Playfair Display',serif;
-    font-size:45px;
+    font-size:50px;
     margin-bottom:20px;
 }
 
-.hero-text p{
-    font-size:17px;
+.hero p{
+    max-width:700px;
+    margin:auto;
+    font-size:18px;
     line-height:1.6;
 }
 
-.hero img{
-    width:400px;
-    max-width:100%;
-    border-radius:20px;
-}
-
-/* ABOUT */
-.about{
+/* SECTION BELOW */
+section{
+    padding:100px 60px;
+    background:linear-gradient(to bottom,var(--green-light),var(--green-mid));
     text-align:center;
-    max-width:800px;
-    margin:auto;
 }
 
-.about h2{
+section h2{
     font-family:'Playfair Display',serif;
     margin-bottom:20px;
+    font-size:32px;
+}
+
+section p{
+    max-width:800px;
+    margin:auto;
+    line-height:1.7;
 }
 
 /* BUTTON */
 .btn{
     display:inline-block;
-    margin-top:20px;
-    padding:12px 28px;
+    margin-top:25px;
+    padding:12px 30px;
     border-radius:30px;
     background:var(--accent);
     color:white;
@@ -125,8 +118,8 @@ section{
 /* FOOTER */
 footer{
     text-align:center;
-    padding:30px;
-    background:rgba(255,255,255,0.6);
+    padding:25px;
+    background:#b7e4c7;
 }
 </style>
 </head>
@@ -142,35 +135,27 @@ footer{
 </header>
 
 <!-- HERO -->
-<section id="home">
-    <div class="hero">
-        <div class="hero-text">
-            <h1>MARIAH AFIFA HSB DIGITAL LIBRARY</h1>
-            <p>
-                Sebuah ruang digital yang menghadirkan pengetahuan, literasi,
-                dan inspirasi dalam satu tempat. Digital Library ini menjadi
-                simbol transformasi perpustakaan menuju era modern dan inovatif.
-            </p>
-            <a href="#about" class="btn">Explore More</a>
-        </div>
-
-        <!-- Gambar Buku -->
-        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794"
-             alt="Book Image">
+<div class="hero" id="home">
+    <div>
+        <h1>MARIAH AFIFA HSB<br>DIGITAL LIBRARY</h1>
+        <p>
+            Sebuah ruang literasi digital yang menghubungkan pengetahuan,
+            kreativitas, dan inovasi dalam satu platform modern.
+            Tempat di mana informasi menjadi jembatan menuju masa depan.
+        </p>
+        <a href="#about" class="btn">Explore More</a>
     </div>
-</section>
+</div>
 
 <!-- ABOUT -->
 <section id="about">
-    <div class="about">
-        <h2>Tentang Digital Library</h2>
-        <p>
-            Website ini dirancang sebagai representasi perpustakaan digital
-            modern yang mengintegrasikan teknologi dan literasi informasi.
-            Tidak hanya sebagai tempat koleksi, tetapi sebagai ruang eksplorasi
-            intelektual yang mendukung pembelajaran berkelanjutan.
-        </p>
-    </div>
+    <h2>Tentang Digital Library</h2>
+    <p>
+        Digital Library ini dirancang sebagai representasi perpustakaan modern
+        berbasis teknologi. Tidak hanya menyimpan koleksi, tetapi menjadi ruang
+        interaktif untuk mengembangkan literasi informasi, riset akademik,
+        dan eksplorasi pengetahuan secara berkelanjutan.
+    </p>
 </section>
 
 <footer>
