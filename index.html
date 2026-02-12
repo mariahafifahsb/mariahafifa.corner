@@ -8,14 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-:root{
-    --green-overlay: rgba(45,106,79,0.75);
-    --green-light:#d8f3dc;
-    --green-mid:#b7e4c7;
-    --accent:#2d6a4f;
-    --white:#ffffff;
-}
-
 *{
     margin:0;
     padding:0;
@@ -24,7 +16,6 @@
 
 body{
     font-family:'Poppins',sans-serif;
-    scroll-behavior:smooth;
 }
 
 /* HEADER */
@@ -37,13 +28,13 @@ header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background:rgba(255,255,255,0.9);
+    background:rgba(0,0,0,0.5);
+    color:white;
     z-index:10;
 }
 
 header h2{
     font-family:'Playfair Display',serif;
-    font-size:20px;
 }
 
 nav{
@@ -52,74 +43,88 @@ nav{
 }
 
 nav a{
+    color:white;
     text-decoration:none;
-    color:#1b4332;
-    font-weight:500;
 }
 
-/* HERO SECTION */
-.hero{
+/* SLIDER */
+.slider{
+    position:relative;
     height:100vh;
-    background:
-        linear-gradient(var(--green-overlay), var(--green-overlay)),
-        url("https://images.unsplash.com/photo-1512820790803-83ca734da794") center/cover no-repeat;
+    overflow:hidden;
+}
+
+.slide{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-size:cover;
+    background-position:center;
     display:flex;
     justify-content:center;
     align-items:center;
     text-align:center;
-    color:var(--white);
+    color:white;
+    transition:opacity 1s ease-in-out;
+    opacity:0;
+}
+
+.slide.active{
+    opacity:1;
+}
+
+/* Overlay */
+.slide::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+}
+
+.slide-content{
+    position:relative;
+    max-width:800px;
     padding:20px;
 }
 
-.hero h1{
+.slide-content h1{
     font-family:'Playfair Display',serif;
     font-size:50px;
     margin-bottom:20px;
 }
 
-.hero p{
-    max-width:700px;
-    margin:auto;
+.slide-content p{
     font-size:18px;
     line-height:1.6;
 }
 
+/* Buttons */
+.prev, .next{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:30px;
+    color:white;
+    cursor:pointer;
+    padding:10px 20px;
+    background:rgba(0,0,0,0.4);
+}
+
+.prev{ left:20px; }
+.next{ right:20px; }
+
 /* SECTION BELOW */
 section{
     padding:100px 60px;
-    background:linear-gradient(to bottom,var(--green-light),var(--green-mid));
+    background:linear-gradient(to bottom,#d8f3dc,#b7e4c7);
     text-align:center;
 }
 
-section h2{
-    font-family:'Playfair Display',serif;
-    margin-bottom:20px;
-    font-size:32px;
-}
-
-section p{
-    max-width:800px;
-    margin:auto;
-    line-height:1.7;
-}
-
-/* BUTTON */
-.btn{
-    display:inline-block;
-    margin-top:25px;
-    padding:12px 30px;
-    border-radius:30px;
-    background:var(--accent);
-    color:white;
-    text-decoration:none;
-    font-weight:500;
-}
-
-/* FOOTER */
 footer{
     text-align:center;
     padding:25px;
-    background:#b7e4c7;
+    background:#95d5b2;
 }
 </style>
 </head>
@@ -129,38 +134,75 @@ footer{
 <header>
     <h2>Digital Library</h2>
     <nav>
-        <a href="#home">Home</a>
+        <a href="#">Home</a>
         <a href="#about">About</a>
     </nav>
 </header>
 
-<!-- HERO -->
-<div class="hero" id="home">
-    <div>
-        <h1>MARIAH AFIFA HSB<br>DIGITAL LIBRARY</h1>
-        <p>
-            Sebuah ruang literasi digital yang menghubungkan pengetahuan,
-            kreativitas, dan inovasi dalam satu platform modern.
-            Tempat di mana informasi menjadi jembatan menuju masa depan.
-        </p>
-        <a href="#about" class="btn">Explore More</a>
+<!-- SLIDER -->
+<div class="slider">
+
+    <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1512820790803-83ca734da794');">
+        <div class="slide-content">
+            <h1>MARIAH AFIFA HSB DIGITAL LIBRARY</h1>
+            <p>Eksplorasi dunia literasi modern dan transformasi informasi digital.</p>
+        </div>
     </div>
+
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1581090700227-1e8a3b1a42c7');">
+        <div class="slide-content">
+            <h1>Library & Research</h1>
+            <p>Mendukung penelitian dan pengembangan ilmu melalui akses informasi terpercaya.</p>
+        </div>
+    </div>
+
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f');">
+        <div class="slide-content">
+            <h1>Information Science</h1>
+            <p>Mengelola, menemukan, dan memanfaatkan informasi secara efektif di era digital.</p>
+        </div>
+    </div>
+
+    <div class="prev" onclick="changeSlide(-1)">❮</div>
+    <div class="next" onclick="changeSlide(1)">❯</div>
+
 </div>
 
 <!-- ABOUT -->
 <section id="about">
     <h2>Tentang Digital Library</h2>
     <p>
-        Digital Library ini dirancang sebagai representasi perpustakaan modern
-        berbasis teknologi. Tidak hanya menyimpan koleksi, tetapi menjadi ruang
-        interaktif untuk mengembangkan literasi informasi, riset akademik,
-        dan eksplorasi pengetahuan secara berkelanjutan.
+        Website ini dirancang sebagai representasi perpustakaan modern berbasis teknologi
+        yang mengintegrasikan literasi informasi dan inovasi digital.
     </p>
 </section>
 
 <footer>
-    © 2026 Mariah Afifa HSB | Digital Library
+    © 2026 Mariah Afifa HSB
 </footer>
+
+<script>
+let slides=document.querySelectorAll(".slide");
+let index=0;
+
+function showSlide(i){
+    slides.forEach(slide=>slide.classList.remove("active"));
+    slides[i].classList.add("active");
+}
+
+function changeSlide(n){
+    index+=n;
+    if(index>=slides.length) index=0;
+    if(index<0) index=slides.length-1;
+    showSlide(index);
+}
+
+setInterval(()=>{
+    index++;
+    if(index>=slides.length) index=0;
+    showSlide(index);
+},4000);
+</script>
 
 </body>
 </html>
