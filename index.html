@@ -51,7 +51,7 @@ nav a{
     font-weight:500;
 }
 
-/* HERO */
+/* HERO WITH SLIDER BACKGROUND */
 .hero{
     height:100vh;
     display:flex;
@@ -59,8 +59,47 @@ nav a{
     justify-content:center;
     text-align:center;
     padding:0 80px;
-    background:linear-gradient(135deg,#1b4332,#2d6a4f,#52b788);
     color:white;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    background:
+    linear-gradient(135deg, rgba(27,67,50,0.85), rgba(45,106,79,0.85), rgba(82,183,136,0.85)),
+    url("https://images.unsplash.com/photo-1521587760476-6c12a4b040da") center/cover no-repeat;
+    animation:slideBg 18s infinite;
+    z-index:-1;
+}
+
+/* SLIDE ANIMATION */
+@keyframes slideBg{
+    0%{
+        background:
+        linear-gradient(135deg, rgba(27,67,50,0.85), rgba(45,106,79,0.85), rgba(82,183,136,0.85)),
+        url("https://images.unsplash.com/photo-1521587760476-6c12a4b040da") center/cover no-repeat;
+    }
+    33%{
+        background:
+        linear-gradient(135deg, rgba(27,67,50,0.85), rgba(45,106,79,0.85), rgba(82,183,136,0.85)),
+        url("https://images.unsplash.com/photo-1507842217343-583bb7270b66") center/cover no-repeat;
+    }
+    66%{
+        background:
+        linear-gradient(135deg, rgba(27,67,50,0.85), rgba(45,106,79,0.85), rgba(82,183,136,0.85)),
+        url("https://images.unsplash.com/photo-1495446815901-a7297e633e8d") center/cover no-repeat;
+    }
+    100%{
+        background:
+        linear-gradient(135deg, rgba(27,67,50,0.85), rgba(45,106,79,0.85), rgba(82,183,136,0.85)),
+        url("https://images.unsplash.com/photo-1521587760476-6c12a4b040da") center/cover no-repeat;
+    }
 }
 
 .hero-text{
@@ -133,7 +172,6 @@ nav a{
     box-shadow:0 20px 40px rgba(0,0,0,0.2);
 }
 
-/* ICON DI BAWAH FOTO */
 .about-icons{
     margin-top:20px;
     display:flex;
@@ -247,7 +285,6 @@ footer{
             Hai, selamat datang di website perpustakaan digital saya!!
         </p>
 
-        <!-- SEARCH BAR -->
         <div class="search-box">
             <input type="text" placeholder="Cari koleksi, artikel, atau topik...">
             <button><i class="fa-solid fa-magnifying-glass"></i></button>
