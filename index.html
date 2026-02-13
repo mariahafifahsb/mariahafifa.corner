@@ -82,6 +82,37 @@ nav a{
     margin-bottom:30px;
 }
 
+/* SEARCH BAR */
+.search-box{
+    margin-top:20px;
+    display:flex;
+    justify-content:center;
+}
+
+.search-box input{
+    width:350px;
+    padding:12px 20px;
+    border-radius:30px 0 0 30px;
+    border:none;
+    outline:none;
+    font-size:14px;
+}
+
+.search-box button{
+    padding:12px 20px;
+    border:none;
+    background:white;
+    color:var(--dark);
+    border-radius:0 30px 30px 0;
+    cursor:pointer;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.search-box button:hover{
+    background:#d8f3dc;
+}
+
 /* ABOUT SECTION */
 .about-section{
     padding:120px 80px;
@@ -185,6 +216,10 @@ footer{
     .video-wrapper iframe{
         height:300px;
     }
+
+    .search-box input{
+        width:220px;
+    }
 }
 </style>
 </head>
@@ -211,6 +246,13 @@ footer{
         <p>
             Hai, selamat datang di website perpustakaan digital saya!!
         </p>
+
+        <!-- SEARCH BAR -->
+        <div class="search-box">
+            <input type="text" placeholder="Cari koleksi, artikel, atau topik...">
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+
     </div>
 </div>
 
