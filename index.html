@@ -42,7 +42,6 @@ nav{
 nav h2{
     font-family:'Playfair Display',serif;
     color:var(--dark);
-    letter-spacing:1px;
 }
 
 nav a{
@@ -52,7 +51,7 @@ nav a{
     font-weight:500;
 }
 
-/* HERO */
+/* HERO WITH SLIDER BACKGROUND */
 .hero{
     height:100vh;
     display:flex;
@@ -79,37 +78,38 @@ nav a{
     z-index:-1;
 }
 
+/* SLIDE ANIMATION */
 @keyframes slideBg{
     0%{
         background:
         linear-gradient(135deg, rgba(27,67,50,0.85), rgba(45,106,79,0.85), rgba(82,183,136,0.85)),
         url("https://images.unsplash.com/photo-1521587760476-6c12a4b040da") center/cover no-repeat;
     }
-    50%{
+    33%{
         background:
         linear-gradient(135deg, rgba(27,67,50,0.85), rgba(45,106,79,0.85), rgba(82,183,136,0.85)),
         url("https://images.unsplash.com/photo-1507842217343-583bb7270b66") center/cover no-repeat;
     }
-    100%{
+    66%{
         background:
         linear-gradient(135deg, rgba(27,67,50,0.85), rgba(45,106,79,0.85), rgba(82,183,136,0.85)),
         url("https://images.unsplash.com/photo-1495446815901-a7297e633e8d") center/cover no-repeat;
+    }
+    100%{
+        background:
+        linear-gradient(135deg, rgba(27,67,50,0.85), rgba(45,106,79,0.85), rgba(82,183,136,0.85)),
+        url("https://images.unsplash.com/photo-1521587760476-6c12a4b040da") center/cover no-repeat;
     }
 }
 
 .hero-text{
     max-width:700px;
-    background:rgba(255,255,255,0.08);
-    padding:40px;
-    border-radius:20px;
-    backdrop-filter:blur(8px);
 }
 
 .hero-text h1{
     font-family:'Playfair Display',serif;
     font-size:55px;
     margin-bottom:20px;
-    letter-spacing:1px;
 }
 
 .hero-text span{
@@ -117,14 +117,8 @@ nav a{
 }
 
 .hero-text p{
-    line-height:1.8;
+    line-height:1.7;
     margin-bottom:30px;
-}
-
-/* WAVE */
-.wave{
-    position:relative;
-    margin-top:-5px;
 }
 
 /* SEARCH BAR */
@@ -140,6 +134,7 @@ nav a{
     border-radius:30px 0 0 30px;
     border:none;
     outline:none;
+    font-size:14px;
 }
 
 .search-box button{
@@ -149,6 +144,12 @@ nav a{
     color:var(--dark);
     border-radius:0 30px 30px 0;
     cursor:pointer;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.search-box button:hover{
+    background:#d8f3dc;
 }
 
 /* ABOUT SECTION */
@@ -209,54 +210,18 @@ nav a{
     color:#333;
 }
 
-/* NEW CARD SECTION */
-.academic-section{
-    padding:100px 80px;
-    background:white;
-    text-align:center;
-}
-
-.card-container{
-    display:flex;
-    justify-content:center;
-    gap:30px;
-    flex-wrap:wrap;
-    margin-top:40px;
-}
-
-.card{
-    background:#f8f9fa;
-    padding:30px;
-    width:280px;
-    border-radius:20px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.1);
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:translateY(-10px);
-}
-
-.card i{
-    font-size:30px;
-    color:var(--mid);
-    margin-bottom:15px;
-}
-
-/* QUOTE */
-.quote{
-    padding:80px;
-    background:linear-gradient(135deg,#1b4332,#2d6a4f);
-    color:white;
-    text-align:center;
-    font-style:italic;
-}
-
-/* VIDEO */
+/* VIDEO SECTION */
 .video-section{
     padding:100px 80px;
     text-align:center;
     background:white;
+}
+
+.video-section h2{
+    font-family:'Playfair Display',serif;
+    font-size:35px;
+    margin-bottom:30px;
+    color:var(--dark);
 }
 
 .video-wrapper{
@@ -278,11 +243,28 @@ footer{
     text-align:center;
     padding:25px;
 }
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .about-container{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .video-wrapper iframe{
+        height:300px;
+    }
+
+    .search-box input{
+        width:220px;
+    }
+}
 </style>
 </head>
 
 <body>
 
+<!-- NAV -->
 <nav>
     <h2>Mariah Afifa Digital Library</h2>
     <div>
@@ -292,6 +274,7 @@ footer{
     </div>
 </nav>
 
+<!-- HERO -->
 <div class="hero" id="home">
     <div class="hero-text">
         <h1>
@@ -306,34 +289,59 @@ footer{
             <input type="text" placeholder="Cari koleksi, artikel, atau topik...">
             <button><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
+
     </div>
 </div>
 
-<!-- NEW SECTION -->
-<section class="academic-section">
-    <h2>Academic Focus</h2>
-    <div class="card-container">
-        <div class="card">
-            <i class="fa-solid fa-book"></i>
-            <h3>Information Literacy</h3>
+<!-- ABOUT -->
+<section class="about-section" id="about">
+    <div class="about-container">
+
+        <div class="about-image">
+            <img src="Afifa image.JPG" alt="Afifa Image">
+
+            <div class="about-icons">
+                <a href="https://drive.google.com/file/d/1Kjqpo886QBpCmjs8-65HxdubXczh5DCM/view?usp=sharing"
+                   target="_blank"
+                   class="icon-btn">
+                   <i class="fa-solid fa-file-lines"></i>
+                   CV
+                </a>
+
+                <a href="https://www.instagram.com/afifaahsb?igsh=MXQzeXRjcXRuNTIwOA=="
+                   target="_blank"
+                   class="icon-btn">
+                   <i class="fa-brands fa-instagram"></i>
+                   Instagram
+                </a>
+            </div>
         </div>
-        <div class="card">
-            <i class="fa-solid fa-database"></i>
-            <h3>Digital Library</h3>
-        </div>
-        <div class="card">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <h3>Information Retrieval</h3>
+
+        <div class="about-text">
+            <h2>About Me & This Website</h2>
+            <p>
+                Hi, Perkenalkan saya Mariah Afifa. Saya mahasiswi Perpustakaan dan Sains Informasi.
+                Website ini saya rancang sebagai ruang representasi diri sekaligus media personal branding
+                untuk memperkenalkan saya sebagai mahasiswa yang mengintegrasikan ilmu perpustakaan
+                dengan inovasi digital.
+            </p>
         </div>
     </div>
 </section>
 
-<section class="quote">
-    “The Five Laws of Library Science” – S.R. Ranganathan
+<!-- VIDEO SECTION -->
+<section class="video-section" id="video">
+    <h2>Media</h2>
+    <div class="video-wrapper">
+        <iframe 
+            src="https://www.youtube.com/embed/gTyw1JmYK8M"
+            title="YouTube video"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+    </div>
 </section>
-
-<!-- ABOUT & VIDEO tetap seperti milik kamu -->
-<!-- (tidak aku hapus, hanya dipersingkat di sini agar tidak terlalu panjang) -->
 
 <footer>
 © 2026 | Official Website of Mariah Afifa HSB Digital Library
