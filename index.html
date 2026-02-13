@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mariah Afifa HSB | Digital Library</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -81,31 +82,6 @@ nav a{
     margin-bottom:30px;
 }
 
-/* ICON BUTTONS */
-.icons{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-}
-
-.icon-btn{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    padding:12px 25px;
-    border-radius:40px;
-    background:white;
-    color:var(--dark);
-    text-decoration:none;
-    font-weight:500;
-    transition:0.3s;
-}
-
-.icon-btn:hover{
-    background:#d8f3dc;
-    transform:translateY(-3px);
-}
-
 /* ABOUT SECTION */
 .about-section{
     padding:120px 80px;
@@ -124,6 +100,33 @@ nav a{
     width:300px;
     border-radius:25px;
     box-shadow:0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* ICON DI BAWAH FOTO */
+.about-icons{
+    margin-top:20px;
+    display:flex;
+    justify-content:center;
+    gap:15px;
+}
+
+.icon-btn{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 20px;
+    border-radius:40px;
+    background:var(--mid);
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+    transition:0.3s;
+    font-size:14px;
+}
+
+.icon-btn:hover{
+    background:var(--dark);
+    transform:translateY(-3px);
 }
 
 .about-text h2{
@@ -197,6 +200,7 @@ footer{
         <a href="#video">Media</a>
     </div>
 </nav>
+
 <!-- HERO -->
 <div class="hero" id="home">
     <div class="hero-text">
@@ -204,50 +208,51 @@ footer{
             Mariah Afifa HSB <br>
             <span>Digital Library</span>
         </h1>
-
         <p>
-            hai selamat datang di website perpustakaan digital saya!!
+            Hai, selamat datang di website perpustakaan digital saya.
         </p>
-
-        <div class="icons">
-            <a href="https://drive.google.com/file/d/1Kjqpo886QBpCmjs8-65HxdubXczh5DCM/view?usp=sharing"
-               target="_blank"
-               class="icon-btn">
-               <i class="fa-solid fa-file-lines"></i>
-               CV
-            </a>
-
-            <a href="https://www.instagram.com/afifaahsb?igsh=MXQzeXRjcXRuNTIwOA=="
-               target="_blank"
-               class="icon-btn">
-               <i class="fa-brands fa-instagram"></i>
-               Instagram
-            </a>
-        </div>
     </div>
 </div>
-<!-- ABOUT (Foto di kiri Konsep) -->
+
+<!-- ABOUT -->
 <section class="about-section" id="about">
     <div class="about-container">
 
         <div class="about-image">
             <img src="Afifa image.JPG" alt="Afifa Image">
+
+            <div class="about-icons">
+                <a href="https://drive.google.com/file/d/1Kjqpo886QBpCmjs8-65HxdubXczh5DCM/view?usp=sharing"
+                   target="_blank"
+                   class="icon-btn">
+                   <i class="fa-solid fa-file-lines"></i>
+                   CV
+                </a>
+
+                <a href="https://www.instagram.com/afifaahsb?igsh=MXQzeXRjcXRuNTIwOA=="
+                   target="_blank"
+                   class="icon-btn">
+                   <i class="fa-brands fa-instagram"></i>
+                   Instagram
+                </a>
+            </div>
         </div>
 
         <div class="about-text">
             <h2>About Me & This Website</h2>
             <p>
-                 hi this is me mariah afifa, saya mahasiswi perpustakaan dan sains informasi. berikut ini merupakan Website Perpustakaan Digital yang saya rancang sebagai ruang representasi diri 
-                sekaligus media personal branding untuk memperkenalkan saya sebagai mahasiswi Program Studi Perpustakaan dan Sains Informasi.
-                Website ini bukan hanya sekadar tampilan profil, tetapi juga menjadi cerminan visi saya dalam mengintegrasikan ilmu perpustakaan dengan inovasi digital.         
+                Hi, this is me Mariah Afifa. Saya mahasiswi Perpustakaan dan Sains Informasi.
+                Website ini saya rancang sebagai ruang representasi diri sekaligus media personal branding
+                untuk memperkenalkan saya sebagai mahasiswa yang mengintegrasikan ilmu perpustakaan
+                dengan inovasi digital.
             </p>
         </div>
     </div>
 </section>
-  <!-- ===== Video Section ===== -->
-<section class="video-section" id="video">
-    <h2>Video Inspiratif</h2>
 
+<!-- VIDEO SECTION -->
+<section class="video-section" id="video">
+    <h2>Media</h2>
     <div class="video-wrapper">
         <iframe 
             src="https://www.youtube.com/embed/gTyw1JmYK8M"
@@ -262,5 +267,6 @@ footer{
 <footer>
 © 2026 | Official Website of Mariah Afifa HSB Digital Library
 </footer>
+
 </body>
 </html>
