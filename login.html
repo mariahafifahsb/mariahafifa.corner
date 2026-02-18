@@ -51,6 +51,11 @@ button{
     background:#1b4332;
     color:white;
     cursor:pointer;
+    margin-top:10px;
+}
+
+.register-btn{
+    background:#52b788;
 }
 </style>
 </head>
@@ -61,6 +66,7 @@ button{
 <h2>Login Form</h2>
 <form>
 <table>
+
 <tr>
 <td>First Name</td>
 <td><input type="text" required></td>
@@ -76,11 +82,19 @@ button{
 <td><input type="email" required></td>
 </tr>
 
+<!-- TAMBAHAN PASSWORD -->
+<tr>
+<td>Password</td>
+<td><input type="password" required></td>
+</tr>
+
 <tr>
 <td colspan="2">
 <button type="submit">Masuk</button>
+<button type="button" class="register-btn">Register</button>
 </td>
 </tr>
+
 </table>
 </form>
 </div>
