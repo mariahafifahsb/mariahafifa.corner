@@ -51,7 +51,33 @@ nav a{
     font-weight:500;
 }
 
-/* HERO WITH SLIDER BACKGROUND */
+/* LOGIN BUTTON */
+.login-btn{
+    padding:8px 20px;
+    background:var(--dark);
+    color:white;
+    border-radius:30px;
+    transition:0.3s;
+}
+
+.login-btn:hover{
+    background:var(--mid);
+}
+
+/* CONTACT BUTTON */
+.contact-btn{
+    padding:8px 20px;
+    background:var(--accent);
+    color:white;
+    border-radius:30px;
+    transition:0.3s;
+}
+
+.contact-btn:hover{
+    background:var(--mid);
+}
+
+/* HERO */
 .hero{
     height:100vh;
     display:flex;
@@ -78,32 +104,16 @@ nav a{
     z-index:-1;
 }
 
-/* SLIDE ANIMATION */
 @keyframes slideBg{
-    0%{
-        background:
+    0%{background:
         linear-gradient(135deg, rgba(27,67,50,0.85), rgba(45,106,79,0.85), rgba(82,183,136,0.85)),
-        url("https://images.unsplash.com/photo-1521587760476-6c12a4b040da") center/cover no-repeat;
-    }
-    33%{
-        background:
+        url("https://images.unsplash.com/photo-1521587760476-6c12a4b040da") center/cover no-repeat;}
+    50%{background:
         linear-gradient(135deg, rgba(27,67,50,0.85), rgba(45,106,79,0.85), rgba(82,183,136,0.85)),
-        url("https://images.unsplash.com/photo-1507842217343-583bb7270b66") center/cover no-repeat;
-    }
-    66%{
-        background:
+        url("https://images.unsplash.com/photo-1507842217343-583bb7270b66") center/cover no-repeat;}
+    100%{background:
         linear-gradient(135deg, rgba(27,67,50,0.85), rgba(45,106,79,0.85), rgba(82,183,136,0.85)),
-        url("https://images.unsplash.com/photo-1495446815901-a7297e633e8d") center/cover no-repeat;
-    }
-    100%{
-        background:
-        linear-gradient(135deg, rgba(27,67,50,0.85), rgba(45,106,79,0.85), rgba(82,183,136,0.85)),
-        url("https://images.unsplash.com/photo-1521587760476-6c12a4b040da") center/cover no-repeat;
-    }
-}
-
-.hero-text{
-    max-width:700px;
+        url("https://images.unsplash.com/photo-1521587760476-6c12a4b040da") center/cover no-repeat;}
 }
 
 .hero-text h1{
@@ -117,13 +127,11 @@ nav a{
 }
 
 .hero-text p{
-    line-height:1.7;
     margin-bottom:30px;
 }
 
-/* SEARCH BAR */
+/* SEARCH */
 .search-box{
-    margin-top:20px;
     display:flex;
     justify-content:center;
 }
@@ -133,8 +141,6 @@ nav a{
     padding:12px 20px;
     border-radius:30px 0 0 30px;
     border:none;
-    outline:none;
-    font-size:14px;
 }
 
 .search-box button{
@@ -144,15 +150,9 @@ nav a{
     color:var(--dark);
     border-radius:0 30px 30px 0;
     cursor:pointer;
-    font-weight:500;
-    transition:0.3s;
 }
 
-.search-box button:hover{
-    background:#d8f3dc;
-}
-
-/* ABOUT SECTION */
+/* ABOUT */
 .about-section{
     padding:120px 80px;
     background:linear-gradient(to bottom,#d8f3dc,#b7e4c7);
@@ -169,102 +169,86 @@ nav a{
 .about-image img{
     width:300px;
     border-radius:25px;
-    box-shadow:0 20px 40px rgba(0,0,0,0.2);
-}
-
-.about-icons{
-    margin-top:20px;
-    display:flex;
-    justify-content:center;
-    gap:15px;
-}
-
-.icon-btn{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    padding:10px 20px;
-    border-radius:40px;
-    background:var(--mid);
-    color:white;
-    text-decoration:none;
-    font-weight:500;
-    transition:0.3s;
-    font-size:14px;
-}
-
-.icon-btn:hover{
-    background:var(--dark);
-    transform:translateY(-3px);
 }
 
 .about-text h2{
     font-family:'Playfair Display',serif;
-    font-size:35px;
     margin-bottom:20px;
-    color:var(--dark);
 }
 
-.about-text p{
-    line-height:1.8;
-    color:#333;
-}
-
-/* VIDEO SECTION */
+/* VIDEO */
 .video-section{
     padding:100px 80px;
     text-align:center;
-    background:white;
-}
-
-.video-section h2{
-    font-family:'Playfair Display',serif;
-    font-size:35px;
-    margin-bottom:30px;
-    color:var(--dark);
-}
-
-.video-wrapper{
-    max-width:800px;
-    margin:auto;
 }
 
 .video-wrapper iframe{
     width:100%;
+    max-width:800px;
     height:450px;
     border-radius:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.2);
 }
 
-/* FOOTER */
+/* CONTACT SECTION */
+.contact-section{
+    padding:100px 80px;
+    background:linear-gradient(to bottom,#b7e4c7,#d8f3dc);
+    text-align:center;
+}
+
+.contact-section h2{
+    font-family:'Playfair Display',serif;
+    margin-bottom:30px;
+    color:var(--dark);
+}
+
+.contact-section table{
+    margin:auto;
+    width:600px;
+    background:white;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.2);
+}
+
+.contact-section td{
+    padding:15px;
+}
+
+.contact-section input,
+.contact-section textarea{
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #ccc;
+}
+
+.contact-section textarea{
+    height:120px;
+    resize:none;
+}
+
+.contact-section button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:30px;
+    background:var(--dark);
+    color:white;
+    cursor:pointer;
+}
+
 footer{
     background:var(--dark);
     color:white;
     text-align:center;
     padding:25px;
 }
-
-/* RESPONSIVE */
-@media(max-width:900px){
-    .about-container{
-        flex-direction:column;
-        text-align:center;
-    }
-
-    .video-wrapper iframe{
-        height:300px;
-    }
-
-    .search-box input{
-        width:220px;
-    }
-}
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
 <nav>
     <h2>Mariah Afifa Digital Library</h2>
     <div>
@@ -276,49 +260,23 @@ footer{
     </div>
 </nav>
 
-<!-- HERO -->
 <div class="hero" id="home">
     <div class="hero-text">
-        <h1>
-            Mariah Afifa HSB <br>
-            <span>Digital Library</span>
-        </h1>
-        <p>
-            Hai, selamat datang di website perpustakaan digital saya!!
-        </p>
+        <h1>Mariah Afifa HSB <br><span>Digital Library</span></h1>
+        <p>Hai, selamat datang di website perpustakaan digital saya!!</p>
 
         <div class="search-box">
             <input type="text" placeholder="Cari koleksi, artikel, atau topik...">
             <button><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
-
     </div>
 </div>
 
-<!-- ABOUT -->
 <section class="about-section" id="about">
     <div class="about-container">
-
         <div class="about-image">
             <img src="Afifa image.JPG" alt="Afifa Image">
-
-            <div class="about-icons">
-                <a href="https://drive.google.com/file/d/1Kjqpo886QBpCmjs8-65HxdubXczh5DCM/view?usp=sharing"
-                   target="_blank"
-                   class="icon-btn">
-                   <i class="fa-solid fa-file-lines"></i>
-                   CV
-                </a>
-
-                <a href="https://www.instagram.com/afifaahsb?igsh=MXQzeXRjcXRuNTIwOA=="
-                   target="_blank"
-                   class="icon-btn">
-                   <i class="fa-brands fa-instagram"></i>
-                   Instagram
-                </a>
-            </div>
         </div>
-
         <div class="about-text">
             <h2>About Me & This Website</h2>
             <p>
@@ -331,30 +289,38 @@ footer{
     </div>
 </section>
 
-<!-- VIDEO SECTION -->
 <section class="video-section" id="video">
     <h2>Media</h2>
     <div class="video-wrapper">
-        <iframe 
-            src="https://www.youtube.com/embed/gTyw1JmYK8M"
-            title="YouTube video"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-        </iframe>
+        <iframe src="https://www.youtube.com/embed/gTyw1JmYK8M" allowfullscreen></iframe>
     </div>
 </section>
-<!-- CONTACT SECTION -->
-<section class="contact-section" id="contact">
-    <h2>Contact & Feedback</h2>
 
-    <form class="contact-form">
-        <input type="text" placeholder="Nama Anda" required>
-        <input type="email" placeholder="Email Anda" required>
-        <textarea placeholder="Tuliskan kritik dan saran Anda..." required></textarea>
-        <button type="submit">Kirim</button>
+<section class="contact-section" id="contact">
+    <h2>Form Kritik & Saran</h2>
+    <form>
+        <table>
+            <tr>
+                <td>Nama</td>
+                <td><input type="text" required></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" required></td>
+            </tr>
+            <tr>
+                <td>Feedback</td>
+                <td><textarea required></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit">Kirim</button>
+                </td>
+            </tr>
+        </table>
     </form>
 </section>
+
 <footer>
 © 2026 | Official Website of Mariah Afifa HSB Digital Library
 </footer>
