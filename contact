@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Mariah Afifa Digital Library</title>
+
+<style>
+body{
+    font-family:Arial, sans-serif;
+    background:linear-gradient(to right,#52b788,#95d5b2);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.contact-box{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    width:500px;
+    box-shadow:0 15px 30px rgba(0,0,0,0.2);
+}
+
+.contact-box h2{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+table{
+    width:100%;
+}
+
+td{
+    padding:10px 0;
+}
+
+input, textarea{
+    width:100%;
+    padding:10px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+textarea{
+    height:120px;
+    resize:none;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:30px;
+    background:#1b4332;
+    color:white;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="contact-box">
+<h2>Contact Form</h2>
+<form>
+<table>
+<tr>
+<td>Nama</td>
+<td><input type="text" required></td>
+</tr>
+
+<tr>
+<td>Email</td>
+<td><input type="email" required></td>
+</tr>
+
+<tr>
+<td>Feedback</td>
+<td><textarea required></textarea></td>
+</tr>
+
+<tr>
+<td colspan="2">
+<button type="submit">Kirim</button>
+</td>
+</tr>
+</table>
+</form>
+</div>
+
+</body>
+</html>
