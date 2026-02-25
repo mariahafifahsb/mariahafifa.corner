@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Afifa Corner</title>
+<title>Mariah Afifa HSB | Digital Library</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -126,51 +126,6 @@ nav a{
     color:#d8f3dc;
 }
 
-/* ================= SEARCH BAR ================= */
-
-.search-section{
-    display:flex;
-    justify-content:center;
-    margin-top:-60px;
-    margin-bottom:60px;
-    position:relative;
-    z-index:10;
-}
-
-.search-box{
-    background:white;
-    padding:15px 25px;
-    border-radius:50px;
-    display:flex;
-    align-items:center;
-    gap:15px;
-    width:500px;
-    max-width:90%;
-    box-shadow:0 10px 30px rgba(0,0,0,0.15);
-}
-
-.search-box input{
-    border:none;
-    outline:none;
-    width:100%;
-    font-size:15px;
-    font-family:'Poppins',sans-serif;
-}
-
-.search-box button{
-    background:var(--dark);
-    border:none;
-    color:white;
-    padding:8px 20px;
-    border-radius:30px;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-.search-box button:hover{
-    background:var(--mid);
-}
-
 /* ABOUT */
 .about-section{
     padding:120px 80px;
@@ -189,6 +144,8 @@ nav a{
     width:300px;
     border-radius:25px;
 }
+
+/* ===== NEW BUTTON DESIGN ===== */
 
 .about-icons{
     margin-top:25px;
@@ -210,10 +167,12 @@ nav a{
     box-shadow:0 6px 15px rgba(0,0,0,0.15);
 }
 
+/* CV Button */
 .about-icons a:first-child{
     background:linear-gradient(135deg,#1b4332,#2d6a4f);
 }
 
+/* Instagram Button */
 .about-icons a:last-child{
     background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
 }
@@ -242,6 +201,41 @@ footer{
     text-align:center;
     padding:25px;
 }
+    /* ================= DARK MODE ================= */
+
+.dark-mode{
+    background:#121212;
+    color:#f1f1f1;
+}
+
+.dark-mode nav{
+    background:#1e1e1e;
+}
+
+.dark-mode nav h2,
+.dark-mode nav a{
+    color:#f1f1f1;
+}
+
+.dark-mode .hero::before{
+    filter:brightness(0.6);
+}
+
+.dark-mode .about-section{
+    background:#1a1a1a;
+}
+
+.dark-mode .about-text p{
+    color:#ddd;
+}
+
+.dark-mode .video-section{
+    background:#1a1a1a;
+}
+
+.dark-mode footer{
+    background:#000;
+}
 </style>
 </head>
 
@@ -259,7 +253,10 @@ footer{
         <a href="#video">Media</a>
         <a href="login.html" target="_blank" class="login-btn">Login</a>
         <a href="contact.html" target="_blank" class="contact-btn">Contact</a>
-        <button id="themeToggle" style="margin-left:20px; padding:8px 15px; border:none; border-radius:20px; cursor:pointer;">🌙</button>
+        <!-- DARK MODE BUTTON -->
+        <button id="themeToggle" style="margin-left:20px; padding:8px 15px; border:none; border-radius:20px; cursor:pointer;">
+            🌙
+        </button>
     </div>
 </nav>
 
@@ -270,28 +267,63 @@ footer{
     </div>
 </div>
 
-<!-- SEARCH BAR -->
-<section class="search-section">
-    <div class="search-box">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" id="searchInput" placeholder="Search books, journals, articles...">
-        <button onclick="searchFunction()">Search</button>
+<section class="about-section" id="about">
+    <div class="about-container">
+
+        <div class="about-image">
+            <img src="Afifa image.JPG" alt="Afifa Image">
+
+            <div class="about-icons">
+                <a href="https://drive.google.com/file/d/1Kjqpo886QBpCmjs8-65HxdubXczh5DCM/view?usp=sharing"
+                   target="_blank"
+                   class="icon-btn">
+                   <i class="fa-solid fa-file-lines"></i>
+                   CV
+                </a>
+
+                <a href="https://www.instagram.com/afifaahsb?igsh=MXQzeXRjcXRuNTIwOA=="
+                   target="_blank"
+                   class="icon-btn">
+                   <i class="fa-brands fa-instagram"></i>
+                   Instagram
+                </a>
+            </div>
+        </div>
+
+        <div class="about-text">
+            <h2>About Me & This Website</h2>
+            <p>
+                Hi, Perkenalkan saya Mariah Afifa. Saya mahasiswi Perpustakaan dan Sains Informasi.
+                Website ini saya rancang sebagai ruang representasi diri sekaligus media personal branding
+                untuk memperkenalkan saya sebagai mahasiswa yang mengintegrasikan ilmu perpustakaan
+                dengan inovasi digital.
+            </p>
+        </div>
     </div>
 </section>
 
-<section class="about-section" id="about">
-...
+<section class="video-section" id="video">
+    <h2>Media</h2>
+    <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/gTyw1JmYK8M" allowfullscreen></iframe>
+    </div>
 </section>
 
+<footer>
+© 2026 | Official Website of Mariah Afifa HSB Digital Library
+</footer>
 <script>
-function searchFunction(){
-    let input = document.getElementById("searchInput").value;
-    if(input.trim() === ""){
-        alert("Silakan masukkan kata kunci pencarian.");
+const toggleBtn = document.getElementById("themeToggle");
+
+toggleBtn.addEventListener("click", function(){
+    document.body.classList.toggle("dark-mode");
+
+    if(document.body.classList.contains("dark-mode")){
+        toggleBtn.textContent = "☀️";
     } else {
-        alert("Mencari: " + input);
+        toggleBtn.textContent = "🌙";
     }
-}
+});
 </script>
 </body>
 </html>
