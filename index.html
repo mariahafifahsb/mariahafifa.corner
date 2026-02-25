@@ -201,6 +201,41 @@ footer{
     text-align:center;
     padding:25px;
 }
+    /* ================= DARK MODE ================= */
+
+.dark-mode{
+    background:#121212;
+    color:#f1f1f1;
+}
+
+.dark-mode nav{
+    background:#1e1e1e;
+}
+
+.dark-mode nav h2,
+.dark-mode nav a{
+    color:#f1f1f1;
+}
+
+.dark-mode .hero::before{
+    filter:brightness(0.6);
+}
+
+.dark-mode .about-section{
+    background:#1a1a1a;
+}
+
+.dark-mode .about-text p{
+    color:#ddd;
+}
+
+.dark-mode .video-section{
+    background:#1a1a1a;
+}
+
+.dark-mode footer{
+    background:#000;
+}
 </style>
 </head>
 
@@ -278,6 +313,18 @@ footer{
 <footer>
 © 2026 | Official Website of Mariah Afifa HSB Digital Library
 </footer>
+<script>
+const toggleBtn = document.getElementById("themeToggle");
 
+toggleBtn.addEventListener("click", function(){
+    document.body.classList.toggle("dark-mode");
+
+    if(document.body.classList.contains("dark-mode")){
+        toggleBtn.textContent = "☀️";
+    } else {
+        toggleBtn.textContent = "🌙";
+    }
+});
+</script>
 </body>
 </html>
