@@ -145,6 +145,43 @@ nav a{
     border-radius:25px;
 }
 
+/* ===== NEW BUTTON DESIGN ===== */
+
+.about-icons{
+    margin-top:25px;
+    display:flex;
+    gap:15px;
+}
+
+.icon-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 22px;
+    border-radius:50px;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:500;
+    color:white;
+    transition:0.3s ease;
+    box-shadow:0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* CV Button */
+.about-icons a:first-child{
+    background:linear-gradient(135deg,#1b4332,#2d6a4f);
+}
+
+/* Instagram Button */
+.about-icons a:last-child{
+    background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
+}
+
+.icon-btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 20px rgba(0,0,0,0.25);
+}
+
 /* VIDEO */
 .video-section{
     padding:100px 80px;
@@ -186,7 +223,8 @@ footer{
         <p>Hai, selamat datang di website perpustakaan digital saya!!</p>
     </div>
 </div>
-            <section class="about-section" id="about">
+
+<section class="about-section" id="about">
     <div class="about-container">
 
         <div class="about-image">
