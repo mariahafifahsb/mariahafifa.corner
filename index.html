@@ -25,6 +25,7 @@
 body{
     font-family:'Poppins',sans-serif;
     scroll-behavior:smooth;
+    background-image:url("https://www.transparenttextures.com/patterns/paper-fibers.png");
 }
 
 /* NAVIGATION */
@@ -49,6 +50,23 @@ nav a{
     margin-left:25px;
     color:var(--dark);
     font-weight:500;
+    position:relative;
+}
+
+/* Underline Animation */
+nav a::after{
+    content:"";
+    position:absolute;
+    width:0;
+    height:2px;
+    left:0;
+    bottom:-5px;
+    background:var(--accent);
+    transition:0.3s;
+}
+
+nav a:hover::after{
+    width:100%;
 }
 
 /* LOGIN BUTTON */
@@ -126,10 +144,27 @@ nav a{
     color:#d8f3dc;
 }
 
+/* Fade Animation */
+.hero-text,
+.about-container,
+.video-section{
+    opacity:0;
+    transform:translateY(30px);
+    animation:fadeUp 1s ease forwards;
+}
+
+@keyframes fadeUp{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
 /* ABOUT */
 .about-section{
     padding:120px 80px;
     background:linear-gradient(to bottom,#d8f3dc,#b7e4c7);
+    border-top:8px solid var(--mid);
 }
 
 .about-container{
@@ -138,15 +173,29 @@ nav a{
     gap:60px;
     max-width:1100px;
     margin:auto;
+    background:white;
+    padding:40px;
+    border-radius:25px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.about-container:hover{
+    transform:translateY(-5px);
 }
 
 .about-image img{
     width:300px;
     border-radius:25px;
+    transition:0.4s;
 }
 
-/* ===== NEW BUTTON DESIGN ===== */
+.about-image img:hover{
+    transform:scale(1.05);
+    box-shadow:0 15px 30px rgba(0,0,0,0.2);
+}
 
+/* BUTTON DESIGN */
 .about-icons{
     margin-top:25px;
     display:flex;
@@ -167,12 +216,10 @@ nav a{
     box-shadow:0 6px 15px rgba(0,0,0,0.15);
 }
 
-/* CV Button */
 .about-icons a:first-child{
     background:linear-gradient(135deg,#1b4332,#2d6a4f);
 }
 
-/* Instagram Button */
 .about-icons a:last-child{
     background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
 }
@@ -186,6 +233,7 @@ nav a{
 .video-section{
     padding:100px 80px;
     text-align:center;
+    border-top:2px solid #e0e0e0;
 }
 
 .video-wrapper iframe{
@@ -195,80 +243,30 @@ nav a{
     border-radius:20px;
 }
 
+/* FOOTER */
 footer{
     background:var(--dark);
     color:white;
     text-align:center;
     padding:25px;
 }
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    nav{
+        padding:20px;
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .about-container{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .hero-text h1{
+        font-size:35px;
+    }
+}
 </style>
 </head>
-
-<body>
-
-<nav>
-    <h2>Mariah Afifa Digital Library</h2>
-    <div>
-        <a href="#home">Home</a>
-        <a href="#about">Profile</a>
-        <a href="#video">Media</a>
-        <a href="login.html" target="_blank" class="login-btn">Login</a>
-        <a href="contact.html" target="_blank" class="contact-btn">Contact</a>
-    </div>
-</nav>
-
-<div class="hero" id="home">
-    <div class="hero-text">
-        <h1>Mariah Afifa HSB <br><span>Digital Library</span></h1>
-        <p>Hai, selamat datang di website perpustakaan digital saya!!</p>
-    </div>
-</div>
-
-<section class="about-section" id="about">
-    <div class="about-container">
-
-        <div class="about-image">
-            <img src="Afifa image.JPG" alt="Afifa Image">
-
-            <div class="about-icons">
-                <a href="https://drive.google.com/file/d/1Kjqpo886QBpCmjs8-65HxdubXczh5DCM/view?usp=sharing"
-                   target="_blank"
-                   class="icon-btn">
-                   <i class="fa-solid fa-file-lines"></i>
-                   CV
-                </a>
-
-                <a href="https://www.instagram.com/afifaahsb?igsh=MXQzeXRjcXRuNTIwOA=="
-                   target="_blank"
-                   class="icon-btn">
-                   <i class="fa-brands fa-instagram"></i>
-                   Instagram
-                </a>
-            </div>
-        </div>
-
-        <div class="about-text">
-            <h2>About Me & This Website</h2>
-            <p>
-                Hi, Perkenalkan saya Mariah Afifa. Saya mahasiswi Perpustakaan dan Sains Informasi.
-                Website ini saya rancang sebagai ruang representasi diri sekaligus media personal branding
-                untuk memperkenalkan saya sebagai mahasiswa yang mengintegrasikan ilmu perpustakaan
-                dengan inovasi digital.
-            </p>
-        </div>
-    </div>
-</section>
-
-<section class="video-section" id="video">
-    <h2>Media</h2>
-    <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/gTyw1JmYK8M" allowfullscreen></iframe>
-    </div>
-</section>
-
-<footer>
-© 2026 | Official Website of Mariah Afifa HSB Digital Library
-</footer>
-
-</body>
-</html>
