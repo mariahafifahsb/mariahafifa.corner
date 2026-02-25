@@ -126,6 +126,32 @@ nav a{
     color:#d8f3dc;
 }
 
+.hero-text p{
+    margin-bottom:30px;
+}
+
+/* SEARCH */
+.search-box{
+    display:flex;
+    justify-content:center;
+}
+
+.search-box input{
+    width:350px;
+    padding:12px 20px;
+    border-radius:30px 0 0 30px;
+    border:none;
+}
+
+.search-box button{
+    padding:12px 20px;
+    border:none;
+    background:white;
+    color:var(--dark);
+    border-radius:0 30px 30px 0;
+    cursor:pointer;
+}
+
 /* ABOUT */
 .about-section{
     padding:120px 80px;
@@ -145,6 +171,11 @@ nav a{
     border-radius:25px;
 }
 
+.about-text h2{
+    font-family:'Playfair Display',serif;
+    margin-bottom:20px;
+}
+
 /* VIDEO */
 .video-section{
     padding:100px 80px;
@@ -156,6 +187,55 @@ nav a{
     max-width:800px;
     height:450px;
     border-radius:20px;
+}
+
+/* CONTACT SECTION */
+.contact-section{
+    padding:100px 80px;
+    background:linear-gradient(to bottom,#b7e4c7,#d8f3dc);
+    text-align:center;
+}
+
+.contact-section h2{
+    font-family:'Playfair Display',serif;
+    margin-bottom:30px;
+    color:var(--dark);
+}
+
+.contact-section table{
+    margin:auto;
+    width:600px;
+    background:white;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.2);
+}
+
+.contact-section td{
+    padding:15px;
+}
+
+.contact-section input,
+.contact-section textarea{
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #ccc;
+}
+
+.contact-section textarea{
+    height:120px;
+    resize:none;
+}
+
+.contact-section button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:30px;
+    background:var(--dark);
+    color:white;
+    cursor:pointer;
 }
 
 footer{
@@ -175,8 +255,8 @@ footer{
         <a href="#home">Home</a>
         <a href="#about">Profile</a>
         <a href="#video">Media</a>
-        <a href="login.html" target="_blank" class="login-btn">Login</a>
-        <a href="contact.html" target="_blank" class="contact-btn">Contact</a>
+        <a href="#" class="login-btn">Login</a>
+        <a href="#contact" class="contact-btn">Contact</a>
     </div>
 </nav>
 
@@ -184,6 +264,11 @@ footer{
     <div class="hero-text">
         <h1>Mariah Afifa HSB <br><span>Digital Library</span></h1>
         <p>Hai, selamat datang di website perpustakaan digital saya!!</p>
+
+        <div class="search-box">
+            <input type="text" placeholder="Cari koleksi, artikel, atau topik...">
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
     </div>
 </div>
 
@@ -192,9 +277,14 @@ footer{
         <div class="about-image">
             <img src="Afifa image.JPG" alt="Afifa Image">
         </div>
-        <div>
+        <div class="about-text">
             <h2>About Me & This Website</h2>
-            <p>Saya mahasiswi Perpustakaan dan Sains Informasi...</p>
+            <p>
+                Hi, Perkenalkan saya Mariah Afifa. Saya mahasiswi Perpustakaan dan Sains Informasi.
+                Website ini saya rancang sebagai ruang representasi diri sekaligus media personal branding
+                untuk memperkenalkan saya sebagai mahasiswa yang mengintegrasikan ilmu perpustakaan
+                dengan inovasi digital.
+            </p>
         </div>
     </div>
 </section>
@@ -204,6 +294,31 @@ footer{
     <div class="video-wrapper">
         <iframe src="https://www.youtube.com/embed/gTyw1JmYK8M" allowfullscreen></iframe>
     </div>
+</section>
+
+<section class="contact-section" id="contact">
+    <h2>Form Kritik & Saran</h2>
+    <form>
+        <table>
+            <tr>
+                <td>Nama</td>
+                <td><input type="text" required></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" required></td>
+            </tr>
+            <tr>
+                <td>Feedback</td>
+                <td><textarea required></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit">Kirim</button>
+                </td>
+            </tr>
+        </table>
+    </form>
 </section>
 
 <footer>
