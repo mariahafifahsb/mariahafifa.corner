@@ -52,6 +52,43 @@ button{
     color:white;
     cursor:pointer;
 }
+
+/* ================= TAMBAHAN DESIGN ================= */
+
+.register-box{
+    backdrop-filter: blur(10px);
+    animation: fadeIn 1s ease-in-out;
+}
+
+input:focus{
+    border:1px solid #2d6a4f;
+    outline:none;
+    box-shadow:0 0 8px rgba(45,106,79,0.4);
+    transition:0.3s;
+}
+
+button:hover{
+    background:#2d6a4f;
+    transform:scale(1.03);
+    transition:0.3s;
+}
+
+h2{
+    color:#1b4332;
+    letter-spacing:1px;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(-20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
 </style>
 </head>
 
@@ -75,6 +112,12 @@ button{
 <tr>
 <td>Email</td>
 <td><input type="email" required></td>
+</tr>
+
+<!-- TAMBAHAN FORM NO HP -->
+<tr>
+<td>No HP</td>
+<td><input type="tel" placeholder="08xxxxxxxxxx" required></td>
 </tr>
 
 <tr>
