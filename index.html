@@ -58,7 +58,6 @@ nav a{
 
 .login-btn:hover{background:var(--mid);}
 
-/* CONTACT MENU */
 .contact-btn{
     background:none;
     color:var(--dark);
@@ -131,30 +130,23 @@ nav a{
 
 .search-container button:hover{background:white;}
 
-/* PROFILE */
+/* PROFILE (GABUNG VISI MISI) */
 .profile-section{
-    padding:120px 80px;
-    background:linear-gradient(to bottom,#d8f3dc,#b7e4c7);
-    text-align:center;
-}
-
-/* ===== VISI MISI ===== */
-.about-library{
     padding:120px 80px;
     background:linear-gradient(135deg,#ffffff,#d8f3dc);
     text-align:center;
 }
 
-.about-library h2{
+.profile-section h2{
     font-family:'Playfair Display',serif;
     font-size:38px;
     color:#1b4332;
     margin-bottom:20px;
 }
 
-.intro-text{
+.profile-section p{
     max-width:800px;
-    margin:0 auto 60px;
+    margin:0 auto 40px;
     font-size:16px;
     line-height:1.8;
     color:#2d6a4f;
@@ -193,7 +185,7 @@ nav a{
     opacity:0.2;
 }
 
-/* ===== KOLEKSI ===== */
+/* KOLEKSI */
 .collection-section{
     padding:120px 80px;
     background:linear-gradient(to right,#f1faee,#e9f5db);
@@ -220,26 +212,6 @@ nav a{
     transform:translateY(-10px);
 }
 
-/* ===== STATISTIK ===== */
-.stats-section{
-    padding:100px 80px;
-    background:#1b4332;
-    color:white;
-    text-align:center;
-}
-
-.stats-wrapper{
-    display:flex;
-    justify-content:center;
-    gap:60px;
-    flex-wrap:wrap;
-}
-
-.stat-box h3{
-    font-size:40px;
-    margin-bottom:10px;
-}
-
 .video-section{
     padding:100px 80px;
     text-align:center;
@@ -257,72 +229,6 @@ footer{
     color:white;
     text-align:center;
     padding:25px;
-}
-
-/* CHATBOT */
-.chatbot-btn{
-    position:fixed;
-    bottom:25px;
-    right:25px;
-    background:#1b4332;
-    color:white;
-    width:60px;
-    height:60px;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:26px;
-    cursor:pointer;
-    box-shadow:0 8px 20px rgba(0,0,0,0.3);
-    z-index:999;
-}
-
-.chatbox{
-    position:fixed;
-    bottom:100px;
-    right:25px;
-    width:300px;
-    background:white;
-    border-radius:15px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.3);
-    display:none;
-    flex-direction:column;
-    overflow:hidden;
-}
-
-.chatbox-header{
-    background:#1b4332;
-    color:white;
-    padding:10px;
-    text-align:center;
-}
-
-.chatbox-body{
-    padding:15px;
-    height:200px;
-    overflow-y:auto;
-    font-size:14px;
-}
-
-.chatbox-input{
-    display:flex;
-    border-top:1px solid #ccc;
-}
-
-.chatbox-input input{
-    flex:1;
-    border:none;
-    padding:10px;
-    outline:none;
-}
-
-.chatbox-input button{
-    background:#1b4332;
-    color:white;
-    border:none;
-    padding:10px 15px;
-    cursor:pointer;
 }
 
 /* DARK MODE */
@@ -360,25 +266,17 @@ footer{
 
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Cari koleksi buku...">
-            <button onclick="searchBook()">Search</button>
+            <button>Search</button>
         </div>
     </div>
 </div>
 
 <section class="profile-section" id="profile">
-    <h2>Profile</h2>
+    <h2>Profile & Visi Misi</h2>
     <p>
         Saya Mariah Afifa HSB, mahasiswa Perpustakaan dan Sains Informasi
         yang memiliki minat pada pengembangan perpustakaan digital,
         literasi informasi, dan personal branding berbasis teknologi.
-    </p>
-</section>
-
-<section class="about-library">
-    <h2>Perpustakaan Sekolah Digital</h2>
-    <p class="intro-text">
-        Website ini merupakan platform Perpustakaan Sekolah Digital yang dirancang 
-        untuk mendukung kegiatan literasi dan pembelajaran berbasis teknologi.
     </p>
 
     <div class="visi-misi-wrapper">
@@ -410,15 +308,6 @@ footer{
     </div>
 </section>
 
-<section class="stats-section">
-    <h2>Statistik Perpustakaan</h2>
-    <div class="stats-wrapper">
-        <div class="stat-box"><h3>1.200+</h3><p>Koleksi Buku</p></div>
-        <div class="stat-box"><h3>850+</h3><p>Anggota Aktif</p></div>
-        <div class="stat-box"><h3>24 Jam</h3><p>Akses Digital</p></div>
-    </div>
-</section>
-
 <section class="video-section" id="video">
     <h2>Media</h2>
     <div class="video-wrapper">
@@ -429,6 +318,12 @@ footer{
 <footer>
 © 2026 | Official Website of Mariah Afifa HSB Digital Library
 </footer>
+
+<script>
+document.getElementById("themeToggle").addEventListener("click", function(){
+    document.body.classList.toggle("dark-mode");
+});
+</script>
 
 </body>
 </html>
