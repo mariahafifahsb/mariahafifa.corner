@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mariah Afifa HSB | Digital Library</title>
+<title>Afifa's Corner </title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -64,17 +64,16 @@ nav a{
     background:var(--mid);
 }
 
-/* CONTACT BUTTON */
+/* CONTACT MENU (tidak seperti tombol) */
 .contact-btn{
-    padding:8px 20px;
-    background:var(--accent);
-    color:white;
-    border-radius:30px;
-    transition:0.3s;
+    background:none;
+    color:var(--dark);
+    border-radius:0;
+    padding:0;
 }
 
 .contact-btn:hover{
-    background:var(--mid);
+    color:var(--mid);
 }
 
 /* HERO */
@@ -145,8 +144,6 @@ nav a{
     border-radius:25px;
 }
 
-/* ===== NEW BUTTON DESIGN ===== */
-
 .about-icons{
     margin-top:25px;
     display:flex;
@@ -167,12 +164,10 @@ nav a{
     box-shadow:0 6px 15px rgba(0,0,0,0.15);
 }
 
-/* CV Button */
 .about-icons a:first-child{
     background:linear-gradient(135deg,#1b4332,#2d6a4f);
 }
 
-/* Instagram Button */
 .about-icons a:last-child{
     background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
 }
@@ -201,8 +196,8 @@ footer{
     text-align:center;
     padding:25px;
 }
-    /* ================= DARK MODE ================= */
 
+/* DARK MODE */
 .dark-mode{
     background:#121212;
     color:#f1f1f1;
@@ -223,10 +218,6 @@ footer{
 
 .dark-mode .about-section{
     background:#1a1a1a;
-}
-
-.dark-mode .about-text p{
-    color:#ddd;
 }
 
 .dark-mode .video-section{
@@ -251,9 +242,10 @@ footer{
         <a href="#home">Home</a>
         <a href="#about">Admin</a>
         <a href="#video">Media</a>
+        <a href="#profile">Profile</a>
         <a href="login.html" target="_blank" class="login-btn">Login</a>
         <a href="contact.html" target="_blank" class="contact-btn">Contact</a>
-        <!-- DARK MODE BUTTON -->
+
         <button id="themeToggle" style="margin-left:20px; padding:8px 15px; border:none; border-radius:20px; cursor:pointer;">
             🌙
         </button>
@@ -269,25 +261,8 @@ footer{
 
 <section class="about-section" id="about">
     <div class="about-container">
-
         <div class="about-image">
             <img src="Afifa image.JPG" alt="Afifa Image">
-
-            <div class="about-icons">
-                <a href="https://drive.google.com/file/d/1Kjqpo886QBpCmjs8-65HxdubXczh5DCM/view?usp=sharing"
-                   target="_blank"
-                   class="icon-btn">
-                   <i class="fa-solid fa-file-lines"></i>
-                   CV
-                </a>
-
-                <a href="https://www.instagram.com/afifaahsb?igsh=MXQzeXRjcXRuNTIwOA=="
-                   target="_blank"
-                   class="icon-btn">
-                   <i class="fa-brands fa-instagram"></i>
-                   Instagram
-                </a>
-            </div>
         </div>
 
         <div class="about-text">
@@ -297,6 +272,21 @@ footer{
                 Website ini saya rancang sebagai ruang representasi diri sekaligus media personal branding
                 untuk memperkenalkan saya sebagai mahasiswa yang mengintegrasikan ilmu perpustakaan
                 dengan inovasi digital.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="about-section" id="profile">
+    <div class="about-container">
+        <div class="about-text">
+            <h2>My Profile</h2>
+            <p>
+                Saya Mariah Afifa HSB, mahasiswa Perpustakaan dan Sains Informasi
+                yang memiliki minat pada pengembangan perpustakaan digital,
+                literasi informasi, dan personal branding berbasis teknologi.
+                Website ini menjadi representasi identitas profesional saya
+                di era transformasi digital.
             </p>
         </div>
     </div>
@@ -312,6 +302,7 @@ footer{
 <footer>
 © 2026 | Official Website of Mariah Afifa HSB Digital Library
 </footer>
+
 <script>
 const toggleBtn = document.getElementById("themeToggle");
 
@@ -325,5 +316,6 @@ toggleBtn.addEventListener("click", function(){
     }
 });
 </script>
+
 </body>
 </html>
