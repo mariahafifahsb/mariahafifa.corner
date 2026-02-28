@@ -138,6 +138,108 @@ nav a{
     text-align:center;
 }
 
+/* ===== VISI MISI ===== */
+.about-library{
+    padding:120px 80px;
+    background:linear-gradient(135deg,#ffffff,#d8f3dc);
+    text-align:center;
+}
+
+.about-library h2{
+    font-family:'Playfair Display',serif;
+    font-size:38px;
+    color:#1b4332;
+    margin-bottom:20px;
+}
+
+.intro-text{
+    max-width:800px;
+    margin:0 auto 60px;
+    font-size:16px;
+    line-height:1.8;
+    color:#2d6a4f;
+}
+
+.visi-misi-wrapper{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    flex-wrap:wrap;
+}
+
+.visi-card, .misi-card{
+    background:white;
+    width:350px;
+    padding:40px 30px;
+    border-radius:25px;
+    box-shadow:0 15px 30px rgba(0,0,0,0.1);
+    position:relative;
+    overflow:hidden;
+    transition:0.4s;
+}
+
+.visi-card:hover, .misi-card:hover{
+    transform:translateY(-10px);
+}
+
+.shape-circle{
+    position:absolute;
+    width:120px;
+    height:120px;
+    background:linear-gradient(135deg,#52b788,#2d6a4f);
+    border-radius:50%;
+    top:-40px;
+    right:-40px;
+    opacity:0.2;
+}
+
+/* ===== KOLEKSI ===== */
+.collection-section{
+    padding:120px 80px;
+    background:linear-gradient(to right,#f1faee,#e9f5db);
+    text-align:center;
+}
+
+.book-grid{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.book-card{
+    background:white;
+    width:220px;
+    padding:20px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    transition:0.4s;
+}
+
+.book-card:hover{
+    transform:translateY(-10px);
+}
+
+/* ===== STATISTIK ===== */
+.stats-section{
+    padding:100px 80px;
+    background:#1b4332;
+    color:white;
+    text-align:center;
+}
+
+.stats-wrapper{
+    display:flex;
+    justify-content:center;
+    gap:60px;
+    flex-wrap:wrap;
+}
+
+.stat-box h3{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
 .video-section{
     padding:100px 80px;
     text-align:center;
@@ -228,6 +330,7 @@ footer{
 .dark-mode nav{background:#1e1e1e;}
 .dark-mode nav h2,.dark-mode nav a{color:#f1f1f1;}
 .dark-mode footer{background:#000;}
+
 </style>
 </head>
 
@@ -236,7 +339,7 @@ footer{
 <nav>
     <div style="display:flex; align-items:center; gap:12px;">
         <i class="fa-solid fa-book-open-reader" style="font-size:26px; color:#1b4332;"></i>
-        <h2>Mariah Afifa Digital Library</h2>
+        <h2>Afifa's Corner | Digital Library</h2>
     </div>
 
     <div>
@@ -244,18 +347,17 @@ footer{
         <a href="admin.html" target="_blank">Admin</a>
         <a href="#video">Media</a>
         <a href="#profile">Profile</a>
-        <a href="login.html" target="_blank" class="login-btn">Login</a>
         <a href="contact.html" target="_blank" class="contact-btn">Contact</a>
+        <a href="login.html" target="_blank" class="login-btn">Login</a>
         <button id="themeToggle" style="margin-left:20px; padding:8px 15px; border:none; border-radius:20px; cursor:pointer;">🌙</button>
     </div>
 </nav>
 
 <div class="hero" id="home">
     <div class="hero-text">
-        <h1>Mariah Afifa HSB <br><span>Digital Library</span></h1>
+        <h1>Mariah Afifa<br><span>Digital Library</span></h1>
         <p>Hai, selamat datang di website perpustakaan digital saya!!</p>
 
-        <!-- SEARCH -->
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Cari koleksi buku...">
             <button onclick="searchBook()">Search</button>
@@ -264,12 +366,57 @@ footer{
 </div>
 
 <section class="profile-section" id="profile">
-    <h2>My Profile</h2>
+    <h2>Profile</h2>
     <p>
         Saya Mariah Afifa HSB, mahasiswa Perpustakaan dan Sains Informasi
         yang memiliki minat pada pengembangan perpustakaan digital,
         literasi informasi, dan personal branding berbasis teknologi.
     </p>
+</section>
+
+<section class="about-library">
+    <h2>Perpustakaan Sekolah Digital</h2>
+    <p class="intro-text">
+        Website ini merupakan platform Perpustakaan Sekolah Digital yang dirancang 
+        untuk mendukung kegiatan literasi dan pembelajaran berbasis teknologi.
+    </p>
+
+    <div class="visi-misi-wrapper">
+        <div class="visi-card">
+            <div class="shape-circle"></div>
+            <h3>Visi</h3>
+            <p>Menjadi pusat sumber belajar digital yang inovatif dan inspiratif.</p>
+        </div>
+
+        <div class="misi-card">
+            <div class="shape-circle"></div>
+            <h3>Misi</h3>
+            <ul>
+                <li>Menyediakan koleksi digital berkualitas.</li>
+                <li>Meningkatkan literasi informasi siswa.</li>
+                <li>Mewujudkan layanan perpustakaan modern.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="collection-section">
+    <h2>Koleksi Unggulan Perpustakaan</h2>
+    <div class="book-grid">
+        <div class="book-card"><h4>Buku Pelajaran</h4></div>
+        <div class="book-card"><h4>Ensiklopedia</h4></div>
+        <div class="book-card"><h4>Buku Literasi</h4></div>
+        <div class="book-card"><h4>E-Book Digital</h4></div>
+    </div>
+</section>
+
+<section class="stats-section">
+    <h2>Statistik Perpustakaan</h2>
+    <div class="stats-wrapper">
+        <div class="stat-box"><h3>1.200+</h3><p>Koleksi Buku</p></div>
+        <div class="stat-box"><h3>850+</h3><p>Anggota Aktif</p></div>
+        <div class="stat-box"><h3>24 Jam</h3><p>Akses Digital</p></div>
+    </div>
 </section>
 
 <section class="video-section" id="video">
@@ -282,53 +429,6 @@ footer{
 <footer>
 © 2026 | Official Website of Mariah Afifa HSB Digital Library
 </footer>
-
-<!-- CHATBOT -->
-<div class="chatbot-btn" onclick="toggleChat()">💬</div>
-
-<div class="chatbox" id="chatbox">
-    <div class="chatbox-header">Digital Library Assistant</div>
-    <div class="chatbox-body" id="chatBody">
-        Halo 👋 Ada yang bisa saya bantu?
-    </div>
-    <div class="chatbox-input">
-        <input type="text" id="chatInput" placeholder="Tulis pesan...">
-        <button onclick="sendMessage()">Kirim</button>
-    </div>
-</div>
-
-<script>
-const toggleBtn=document.getElementById("themeToggle");
-toggleBtn.addEventListener("click",function(){
-document.body.classList.toggle("dark-mode");
-toggleBtn.textContent=document.body.classList.contains("dark-mode")?"☀️":"🌙";
-});
-
-function searchBook(){
-const keyword=document.getElementById("searchInput").value;
-if(keyword.trim()!==""){
-alert("Hasil pencarian untuk: "+keyword);
-}else{
-alert("Silakan masukkan kata kunci.");
-}
-}
-
-function toggleChat(){
-const chatbox=document.getElementById("chatbox");
-chatbox.style.display=chatbox.style.display==="flex"?"none":"flex";
-}
-
-function sendMessage(){
-const input=document.getElementById("chatInput");
-const chatBody=document.getElementById("chatBody");
-if(input.value.trim()!==""){
-chatBody.innerHTML+="<br><strong>Anda:</strong> "+input.value;
-chatBody.innerHTML+="<br><strong>Bot:</strong> Terima kasih, pesan Anda sudah diterima.";
-input.value="";
-chatBody.scrollTop=chatBody.scrollHeight;
-}
-}
-</script>
 
 </body>
 </html>
