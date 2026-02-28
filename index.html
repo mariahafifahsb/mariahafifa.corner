@@ -16,11 +16,7 @@
     --accent:#52b788;
 }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
     font-family:'Poppins',sans-serif;
@@ -60,9 +56,9 @@ nav a{
     transition:0.3s;
 }
 
-.login-btn:hover{
-    background:var(--mid);
-}
+.login-btn:hover{background:var(--mid);}
+
+/* CONTACT MENU */
 .contact-btn{
     background:none;
     color:var(--dark);
@@ -70,9 +66,7 @@ nav a{
     padding:0;
 }
 
-.contact-btn:hover{
-    color:var(--mid);
-}
+.contact-btn:hover{color:var(--mid);}
 
 /* HERO */
 .hero{
@@ -97,20 +91,7 @@ nav a{
     background:
     linear-gradient(135deg, rgba(27,67,50,0.85), rgba(45,106,79,0.85), rgba(82,183,136,0.85)),
     url("https://images.unsplash.com/photo-1521587760476-6c12a4b040da") center/cover no-repeat;
-    animation:slideBg 18s infinite;
     z-index:-1;
-}
-
-@keyframes slideBg{
-    0%{background:
-        linear-gradient(135deg, rgba(27,67,50,0.85), rgba(45,106,79,0.85), rgba(82,183,136,0.85)),
-        url("https://images.unsplash.com/photo-1521587760476-6c12a4b040da") center/cover no-repeat;}
-    50%{background:
-        linear-gradient(135deg, rgba(27,67,50,0.85), rgba(45,106,79,0.85), rgba(82,183,136,0.85)),
-        url("https://images.unsplash.com/photo-1507842217343-583bb7270b66") center/cover no-repeat;}
-    100%{background:
-        linear-gradient(135deg, rgba(27,67,50,0.85), rgba(45,106,79,0.85), rgba(82,183,136,0.85)),
-        url("https://images.unsplash.com/photo-1521587760476-6c12a4b040da") center/cover no-repeat;}
 }
 
 .hero-text h1{
@@ -119,20 +100,42 @@ nav a{
     margin-bottom:20px;
 }
 
-.hero-text span{
-    color:#d8f3dc;
+.hero-text span{color:#d8f3dc;}
+
+/* SEARCH BAR */
+.search-container{
+    margin-top:30px;
+    display:flex;
+    justify-content:center;
+    gap:10px;
 }
 
-/* PROFILE SECTION */
+.search-container input{
+    padding:12px 20px;
+    width:280px;
+    border-radius:30px;
+    border:none;
+    outline:none;
+}
+
+.search-container button{
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:#d8f3dc;
+    color:#1b4332;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.search-container button:hover{background:white;}
+
+/* PROFILE */
 .profile-section{
     padding:120px 80px;
     background:linear-gradient(to bottom,#d8f3dc,#b7e4c7);
     text-align:center;
-}
-
-.profile-section h2{
-    font-family:'Playfair Display',serif;
-    margin-bottom:20px;
 }
 
 .video-section{
@@ -154,36 +157,77 @@ footer{
     padding:25px;
 }
 
+/* CHATBOT */
+.chatbot-btn{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    background:#1b4332;
+    color:white;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:26px;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+    z-index:999;
+}
+
+.chatbox{
+    position:fixed;
+    bottom:100px;
+    right:25px;
+    width:300px;
+    background:white;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+    display:none;
+    flex-direction:column;
+    overflow:hidden;
+}
+
+.chatbox-header{
+    background:#1b4332;
+    color:white;
+    padding:10px;
+    text-align:center;
+}
+
+.chatbox-body{
+    padding:15px;
+    height:200px;
+    overflow-y:auto;
+    font-size:14px;
+}
+
+.chatbox-input{
+    display:flex;
+    border-top:1px solid #ccc;
+}
+
+.chatbox-input input{
+    flex:1;
+    border:none;
+    padding:10px;
+    outline:none;
+}
+
+.chatbox-input button{
+    background:#1b4332;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    cursor:pointer;
+}
+
 /* DARK MODE */
-.dark-mode{
-    background:#121212;
-    color:#f1f1f1;
-}
-
-.dark-mode nav{
-    background:#1e1e1e;
-}
-
-.dark-mode nav h2,
-.dark-mode nav a{
-    color:#f1f1f1;
-}
-
-.dark-mode .hero::before{
-    filter:brightness(0.6);
-}
-
-.dark-mode .profile-section{
-    background:#1a1a1a;
-}
-
-.dark-mode .video-section{
-    background:#1a1a1a;
-}
-
-.dark-mode footer{
-    background:#000;
-}
+.dark-mode{background:#121212;color:#f1f1f1;}
+.dark-mode nav{background:#1e1e1e;}
+.dark-mode nav h2,.dark-mode nav a{color:#f1f1f1;}
+.dark-mode footer{background:#000;}
 </style>
 </head>
 
@@ -192,7 +236,7 @@ footer{
 <nav>
     <div style="display:flex; align-items:center; gap:12px;">
         <i class="fa-solid fa-book-open-reader" style="font-size:26px; color:#1b4332;"></i>
-        <h2>Afifa's Corner | Digital Library</h2>
+        <h2>Mariah Afifa Digital Library</h2>
     </div>
 
     <div>
@@ -200,12 +244,9 @@ footer{
         <a href="admin.html" target="_blank">Admin</a>
         <a href="#video">Media</a>
         <a href="#profile">Profile</a>
+        <a href="login.html" target="_blank" class="login-btn">Login</a>
         <a href="contact.html" target="_blank" class="contact-btn">Contact</a>
-         <a href="login.html" target="_blank" class="login-btn">Login</a>
-
-        <button id="themeToggle" style="margin-left:20px; padding:8px 15px; border:none; border-radius:20px; cursor:pointer;">
-            🌙
-        </button>
+        <button id="themeToggle" style="margin-left:20px; padding:8px 15px; border:none; border-radius:20px; cursor:pointer;">🌙</button>
     </div>
 </nav>
 
@@ -213,6 +254,12 @@ footer{
     <div class="hero-text">
         <h1>Mariah Afifa HSB <br><span>Digital Library</span></h1>
         <p>Hai, selamat datang di website perpustakaan digital saya!!</p>
+
+        <!-- SEARCH -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Cari koleksi buku...">
+            <button onclick="searchBook()">Search</button>
+        </div>
     </div>
 </div>
 
@@ -222,8 +269,6 @@ footer{
         Saya Mariah Afifa HSB, mahasiswa Perpustakaan dan Sains Informasi
         yang memiliki minat pada pengembangan perpustakaan digital,
         literasi informasi, dan personal branding berbasis teknologi.
-        Website ini menjadi representasi identitas profesional saya
-        di era transformasi digital.
     </p>
 </section>
 
@@ -238,18 +283,51 @@ footer{
 © 2026 | Official Website of Mariah Afifa HSB Digital Library
 </footer>
 
+<!-- CHATBOT -->
+<div class="chatbot-btn" onclick="toggleChat()">💬</div>
+
+<div class="chatbox" id="chatbox">
+    <div class="chatbox-header">Digital Library Assistant</div>
+    <div class="chatbox-body" id="chatBody">
+        Halo 👋 Ada yang bisa saya bantu?
+    </div>
+    <div class="chatbox-input">
+        <input type="text" id="chatInput" placeholder="Tulis pesan...">
+        <button onclick="sendMessage()">Kirim</button>
+    </div>
+</div>
+
 <script>
-const toggleBtn = document.getElementById("themeToggle");
-
-toggleBtn.addEventListener("click", function(){
-    document.body.classList.toggle("dark-mode");
-
-    if(document.body.classList.contains("dark-mode")){
-        toggleBtn.textContent = "☀️";
-    } else {
-        toggleBtn.textContent = "🌙";
-    }
+const toggleBtn=document.getElementById("themeToggle");
+toggleBtn.addEventListener("click",function(){
+document.body.classList.toggle("dark-mode");
+toggleBtn.textContent=document.body.classList.contains("dark-mode")?"☀️":"🌙";
 });
+
+function searchBook(){
+const keyword=document.getElementById("searchInput").value;
+if(keyword.trim()!==""){
+alert("Hasil pencarian untuk: "+keyword);
+}else{
+alert("Silakan masukkan kata kunci.");
+}
+}
+
+function toggleChat(){
+const chatbox=document.getElementById("chatbox");
+chatbox.style.display=chatbox.style.display==="flex"?"none":"flex";
+}
+
+function sendMessage(){
+const input=document.getElementById("chatInput");
+const chatBody=document.getElementById("chatBody");
+if(input.value.trim()!==""){
+chatBody.innerHTML+="<br><strong>Anda:</strong> "+input.value;
+chatBody.innerHTML+="<br><strong>Bot:</strong> Terima kasih, pesan Anda sudah diterima.";
+input.value="";
+chatBody.scrollTop=chatBody.scrollHeight;
+}
+}
 </script>
 
 </body>
