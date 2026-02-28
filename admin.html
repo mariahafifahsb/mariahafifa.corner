@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin | Mariah Afifa Digital Library</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root{
+    --dark:#1b4332;
+    --mid:#2d6a4f;
+    --light:#95d5b2;
+    --accent:#52b788;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    margin:0;
+    background:linear-gradient(to bottom,#d8f3dc,#b7e4c7);
+}
+
+/* NAV */
+nav{
+    width:100%;
+    padding:20px 60px;
+    display:flex;
+    justify-content:space-between;
+    background:white;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+nav h2{
+    font-family:'Playfair Display',serif;
+    color:var(--dark);
+}
+
+nav a{
+    text-decoration:none;
+    color:var(--dark);
+    font-weight:500;
+}
+
+/* ADMIN SECTION */
+.admin-section{
+    padding:120px 80px;
+}
+
+.admin-container{
+    display:flex;
+    align-items:center;
+    gap:60px;
+    max-width:1100px;
+    margin:auto;
+}
+
+.admin-image img{
+    width:300px;
+    border-radius:25px;
+}
+
+.admin-text h2{
+    font-family:'Playfair Display',serif;
+    margin-bottom:20px;
+}
+
+.admin-icons{
+    margin-top:25px;
+    display:flex;
+    gap:15px;
+}
+
+.icon-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 22px;
+    border-radius:50px;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:500;
+    color:white;
+    transition:0.3s ease;
+    box-shadow:0 6px 15px rgba(0,0,0,0.15);
+}
+
+.admin-icons a:first-child{
+    background:linear-gradient(135deg,#1b4332,#2d6a4f);
+}
+
+.admin-icons a:last-child{
+    background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
+}
+
+.icon-btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 20px rgba(0,0,0,0.25);
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <h2>Mariah Afifa Digital Library</h2>
+    <a href="index.html">← Back to Home</a>
+</nav>
+
+<section class="admin-section">
+    <div class="admin-container">
+
+        <div class="admin-image">
+            <img src="Afifa image.JPG" alt="Afifa Image">
+
+            <div class="admin-icons">
+                <a href="https://drive.google.com/file/d/1Kjqpo886QBpCmjs8-65HxdubXczh5DCM/view?usp=sharing"
+                   target="_blank"
+                   class="icon-btn">
+                   <i class="fa-solid fa-file-lines"></i>
+                   CV
+                </a>
+
+                <a href="https://www.instagram.com/afifaahsb?igsh=MXQzeXRjcXRuNTIwOA=="
+                   target="_blank"
+                   class="icon-btn">
+                   <i class="fa-brands fa-instagram"></i>
+                   Instagram
+                </a>
+            </div>
+        </div>
+
+        <div class="admin-text">
+            <h2>About Me & This Website</h2>
+            <p>
+                Hi, Perkenalkan saya Mariah Afifa. Saya mahasiswi Perpustakaan dan Sains Informasi.
+                Website ini saya rancang sebagai ruang representasi diri sekaligus media personal branding
+                untuk memperkenalkan saya sebagai mahasiswa yang mengintegrasikan ilmu perpustakaan
+                dengan inovasi digital.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+</body>
+</html>
