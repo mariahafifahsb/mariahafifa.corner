@@ -384,83 +384,149 @@ nav.scrolled{
 </style>
 
 
-<!-- ===== KOLEKSI BUKU TAMBAHAN ===== -->
-<section class="collection-section fade-in">
-    <h2>Koleksi Buku</h2>
-    <div class="book-grid" id="bookList">
+<!-- ===== MODAL DETAIL BUKU ===== -->
+<style>
 
-        <div class="book-card">
-            <img src="https://covers.openlibrary.org/b/id/10594765-L.jpg" width="100%">
-            <h4>Sejarah Indonesia</h4>
-        </div>
+.book-modal{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    opacity:0;
+    pointer-events:none;
+    transition:0.3s;
+    z-index:9999;
+}
 
-        <div class="book-card">
-            <img src="https://covers.openlibrary.org/b/id/10958353-L.jpg" width="100%">
-            <h4>Matematika SMA</h4>
-        </div>
+.book-modal.active{
+    opacity:1;
+    pointer-events:auto;
+}
 
-        <div class="book-card">
-            <img src="https://covers.openlibrary.org/b/id/10523338-L.jpg" width="100%">
-            <h4>Fisika Dasar</h4>
-        </div>
+.modal-content{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    width:90%;
+    max-width:500px;
+    text-align:center;
+    position:relative;
+    animation:popUp 0.3s ease;
+}
 
-        <div class="book-card">
-            <img src="https://covers.openlibrary.org/b/id/11153223-L.jpg" width="100%">
-            <h4>Biologi Modern</h4>
-        </div>
+@keyframes popUp{
+    from{transform:scale(0.7);opacity:0;}
+    to{transform:scale(1);opacity:1;}
+}
 
+.modal-content img{
+    width:150px;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+.modal-content h3{
+    margin-bottom:10px;
+    color:#1b4332;
+}
+
+.modal-content p{
+    font-size:14px;
+    color:#444;
+    line-height:1.6;
+}
+
+.close-btn{
+    position:absolute;
+    top:10px;
+    right:15px;
+    font-size:20px;
+    cursor:pointer;
+}
+
+</style>
+
+<!-- POPUP -->
+<div class="book-modal" id="bookModal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <img id="modalImg">
+        <h3 id="modalTitle"></h3>
+        <p id="modalAuthor"></p>
+        <p id="modalDesc"></p>
     </div>
-</section>
-
-
-<!-- BUTTON SCROLL ATAS -->
-<button id="topBtn">↑</button>
+</div>
 
 
 <script>
 
-/* ===== ANIMASI SCROLL ===== */
-const fadeElements = document.querySelectorAll(".fade-in");
+/* DATA BUKU */
+const bookData = {
+    "Laskar Pelangi":{
+        author:"Andrea Hirata",
+        desc:"Novel inspiratif tentang perjuangan anak-anak Belitung dalam meraih pendidikan dengan penuh semangat dan harapan."
+    },
+    "Bumi Manusia":{
+        author:"Pramoedya Ananta Toer",
+        desc:"Kisah perjuangan dan cinta di masa kolonial yang menggambarkan realitas sosial Indonesia."
+    },
+    "Sejarah Indonesia SMA":{
+        author:"Kemdikbud",
+        desc:"Buku pelajaran yang membahas perjalanan sejarah bangsa Indonesia secara lengkap untuk siswa SMA."
+    },
+    "Matematika Wajib SMA":{
+        author:"Kemdikbud",
+        desc:"Materi matematika penting yang membantu siswa memahami konsep dasar hingga lanjutan."
+    },
+    "Fisika untuk SMA":{
+        author:"Kemdikbud",
+        desc:"Pembelajaran konsep fisika yang dikemas secara sistematis dan mudah dipahami."
+    },
+    "Biologi Kelas XII":{
+        author:"Kemdikbud",
+        desc:"Materi biologi lanjutan tentang kehidupan, sel, dan sistem tubuh manusia."
+    }
+};
 
-window.addEventListener("scroll", () => {
-    fadeElements.forEach(el => {
-        const top = el.getBoundingClientRect().top;
-        if(top < window.innerHeight - 100){
-            el.classList.add("show");
+/* EVENT KLIK BUKU */
+document.querySelectorAll(".book-slide, .book-card").forEach(book => {
+    book.addEventListener("click", function(){
+
+        let title = this.querySelector("h4").innerText;
+        let img = this.querySelector("img").src;
+
+        document.getElementById("modalTitle").innerText = title;
+        document.getElementById("modalImg").src = img;
+
+        if(bookData[title]){
+            document.getElementById("modalAuthor").innerText = "Penulis: " + bookData[title].author;
+            document.getElementById("modalDesc").innerText = bookData[title].desc;
+        } else {
+            document.getElementById("modalAuthor").innerText = "";
+            document.getElementById("modalDesc").innerText = "Deskripsi belum tersedia.";
         }
+
+        document.getElementById("bookModal").classList.add("active");
     });
 });
 
+/* TUTUP MODAL */
+function closeModal(){
+    document.getElementById("bookModal").classList.remove("active");
+}
 
-/* ===== NAVBAR EFFECT ===== */
-window.addEventListener("scroll", function(){
-    const nav = document.querySelector("nav");
-    nav.classList.toggle("scrolled", window.scrollY > 50);
-});
-
-
-/* ===== SEARCH FILTER ===== */
-document.querySelector(".search-container button").addEventListener("click", function(){
-    let input = document.getElementById("searchInput").value.toLowerCase();
-    let books = document.querySelectorAll(".book-card");
-
-    books.forEach(book => {
-        let title = book.innerText.toLowerCase();
-        book.style.display = title.includes(input) ? "block" : "none";
-    });
-});
-
-
-/* ===== BACK TO TOP ===== */
-const topBtn = document.getElementById("topBtn");
-
-window.onscroll = function(){
-    topBtn.style.display = window.scrollY > 300 ? "block" : "none";
-};
-
-topBtn.onclick = function(){
-    window.scrollTo({top:0, behavior:'smooth'});
-};
+/* KLIK LUAR = TUTUP */
+window.onclick = function(e){
+    const modal = document.getElementById("bookModal");
+    if(e.target === modal){
+        modal.classList.remove("active");
+    }
+}
 
 </script>
 </body>
