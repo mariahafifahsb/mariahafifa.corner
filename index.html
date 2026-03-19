@@ -384,7 +384,86 @@ nav.scrolled{
 </style>
 
 
-<!-- ===== MODAL DETAIL BUKU ===== -->
+<!-- ===== KOLEKSI BUKU TAMBAHAN ===== -->
+<section class="collection-section fade-in">
+    <h2>Koleksi Buku</h2>
+    <div class="book-grid" id="bookList">
+
+        <div class="book-card">
+            <img src="https://covers.openlibrary.org/b/id/10594765-L.jpg" width="100%">
+            <h4>Sejarah Indonesia</h4>
+        </div>
+
+        <div class="book-card">
+            <img src="https://covers.openlibrary.org/b/id/10958353-L.jpg" width="100%">
+            <h4>Matematika SMA</h4>
+        </div>
+
+        <div class="book-card">
+            <img src="https://covers.openlibrary.org/b/id/10523338-L.jpg" width="100%">
+            <h4>Fisika Dasar</h4>
+        </div>
+
+        <div class="book-card">
+            <img src="https://covers.openlibrary.org/b/id/11153223-L.jpg" width="100%">
+            <h4>Biologi Modern</h4>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- BUTTON SCROLL ATAS -->
+<button id="topBtn">↑</button>
+
+
+<script>
+
+/* ===== ANIMASI SCROLL ===== */
+const fadeElements = document.querySelectorAll(".fade-in");
+
+window.addEventListener("scroll", () => {
+    fadeElements.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if(top < window.innerHeight - 100){
+            el.classList.add("show");
+        }
+    });
+});
+
+
+/* ===== NAVBAR EFFECT ===== */
+window.addEventListener("scroll", function(){
+    const nav = document.querySelector("nav");
+    nav.classList.toggle("scrolled", window.scrollY > 50);
+});
+
+
+/* ===== SEARCH FILTER ===== */
+document.querySelector(".search-container button").addEventListener("click", function(){
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let books = document.querySelectorAll(".book-card");
+
+    books.forEach(book => {
+        let title = book.innerText.toLowerCase();
+        book.style.display = title.includes(input) ? "block" : "none";
+    });
+});
+
+
+/* ===== BACK TO TOP ===== */
+const topBtn = document.getElementById("topBtn");
+
+window.onscroll = function(){
+    topBtn.style.display = window.scrollY > 300 ? "block" : "none";
+};
+
+topBtn.onclick = function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+};
+
+</script>
+    <!-- ===== MODAL DETAIL BUKU ===== -->
 <style>
 
 .book-modal{
