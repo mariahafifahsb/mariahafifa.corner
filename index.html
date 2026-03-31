@@ -210,18 +210,24 @@ nav a{
 }
 
 .visi-card, .misi-card{
-    background:white;
+    background:linear-gradient(135deg,#d8f3dc,#b7e4c7);
     width:350px;
     padding:40px 30px;
-    border-radius:25px;
+
+    /* BENTUK PERSEGI */
+    border-radius:0; /* ini yang bikin kotak */
+
     box-shadow:0 15px 30px rgba(0,0,0,0.1);
     position:relative;
     overflow:hidden;
-    transition:0.4s;
+    transition:all 0.5s ease;
+
+    border-left:6px solid #2d6a4f;
 }
 
 .visi-card:hover, .misi-card:hover{
     transform:translateY(-10px);
+    box-shadow:0 25px 50px rgba(0,0,0,0.2);
 }
 
 .shape-circle{
