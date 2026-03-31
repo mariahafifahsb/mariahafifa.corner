@@ -280,6 +280,52 @@ footer{
 }
 
 </style>
+    
+    <style>
+
+/* ANIMASI MASUK */
+.fade-in{
+    opacity:0;
+    transform:translateY(30px);
+    transition:all 0.8s ease;
+}
+.fade-in.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* NAV SCROLL EFFECT */
+nav.scrolled{
+    background:rgba(255,255,255,0.95);
+    backdrop-filter:blur(10px);
+}
+
+/* BOOK TITLE */
+.book-card h4{
+    margin-top:10px;
+    color:#1b4332;
+}
+
+/* BACK TO TOP BUTTON */
+#topBtn{
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    background:#1b4332;
+    color:white;
+    border:none;
+    padding:12px 15px;
+    border-radius:50%;
+    cursor:pointer;
+    display:none;
+    z-index:999;
+}
+
+#topBtn:hover{
+    background:#2d6a4f;
+}
+
+</style>
 </head>
 
 <body>
@@ -356,53 +402,6 @@ document.getElementById("themeToggle").addEventListener("click", function(){
     document.body.classList.toggle("dark-mode");
 });
 </script>
-
-<style>
-
-/* ANIMASI MASUK */
-.fade-in{
-    opacity:0;
-    transform:translateY(30px);
-    transition:all 0.8s ease;
-}
-.fade-in.show{
-    opacity:1;
-    transform:translateY(0);
-}
-
-/* NAV SCROLL EFFECT */
-nav.scrolled{
-    background:rgba(255,255,255,0.95);
-    backdrop-filter:blur(10px);
-}
-
-/* BOOK TITLE */
-.book-card h4{
-    margin-top:10px;
-    color:#1b4332;
-}
-
-/* BACK TO TOP BUTTON */
-#topBtn{
-    position:fixed;
-    bottom:30px;
-    right:30px;
-    background:#1b4332;
-    color:white;
-    border:none;
-    padding:12px 15px;
-    border-radius:50%;
-    cursor:pointer;
-    display:none;
-    z-index:999;
-}
-
-#topBtn:hover{
-    background:#2d6a4f;
-}
-
-</style>
-
 
 <!-- ===== KOLEKSI BUKU TAMBAHAN ===== -->
 <section class="collection-section fade-in">
