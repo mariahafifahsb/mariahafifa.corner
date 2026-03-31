@@ -221,6 +221,7 @@ nav a{
 
 .book-grid{
     display:flex;
+    justify-content:center;
     gap:20px;
     transition:transform 0.5s ease;
 }
@@ -481,6 +482,30 @@ setInterval(autoSlide, 2000);
 
 <script>
 
+/* ===== SEARCH FILTER ===== */
+document.querySelector(".search-container button").addEventListener("click", function(){
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let books = document.querySelectorAll(".book-card");
+
+    books.forEach(book => {
+        let title = book.innerText.toLowerCase();
+        book.style.display = title.includes(input) ? "block" : "none";
+    });
+});
+
+
+/* ===== BACK TO TOP ===== */
+const topBtn = document.getElementById("topBtn");
+
+window.onscroll = function(){
+    topBtn.style.display = window.scrollY > 300 ? "block" : "none";
+};
+
+topBtn.onclick = function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+};
+
+
 /* ===== ANIMASI SCROLL ===== */
 const fadeElements = document.querySelectorAll(".fade-in");
 
@@ -501,26 +526,23 @@ window.addEventListener("scroll", function(){
 });
 
 
-/* ===== SEARCH FILTER ===== */
-document.querySelector(".search-container button").addEventListener("click", function(){
-    let input = document.getElementById("searchInput").value.toLowerCase();
-    let books = document.querySelectorAll(".book-card");
+/* ===== AUTO SLIDER ===== */
+let index = 0;
+const slider = document.getElementById("bookList");
+const cards = document.querySelectorAll(".book-card");
 
-    books.forEach(book => {
-        let title = book.innerText.toLowerCase();
-        book.style.display = title.includes(input) ? "block" : "none";
-    /* ===== BACK TO TOP ===== */
-const topBtn = document.getElementById("topBtn");
+function autoSlide(){
+    index++;
+    if(index > cards.length - 4){
+        index = 0;
+    }
+    slider.style.transform = `translateX(-${index * 220}px)`;
+}
 
-window.onscroll = function(){
-    topBtn.style.display = window.scrollY > 300 ? "block" : "none";
-};
-
-topBtn.onclick = function(){
-    window.scrollTo({top:0, behavior:'smooth'});
-};
+setInterval(autoSlide, 2000);
 
 </script>
+    
 <footer>
 © 2026 | Official Website of Mariah Afifa HSB Digital Library
 </footer>
