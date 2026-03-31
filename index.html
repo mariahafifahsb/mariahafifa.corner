@@ -211,7 +211,34 @@ nav a{
 .book-card:hover{
     transform:translateY(-10px);
 }
+/* SLIDER */
+.slider-container{
+    overflow:hidden;
+    width:100%;
+    max-width:1000px;
+    margin:auto;
+}
 
+.book-grid{
+    display:flex;
+    gap:20px;
+    transition:transform 0.5s ease;
+}
+
+/* CARD RAPI */
+.book-card{
+    min-width:200px;
+    flex-shrink:0;
+    text-align:center;
+}
+
+.book-card img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    border-radius:15px;
+}
+    
 .video-section{
     padding:100px 80px;
     text-align:center;
@@ -382,32 +409,72 @@ nav.scrolled{
 <!-- ===== KOLEKSI BUKU TAMBAHAN ===== -->
 <section class="collection-section fade-in">
     <h2>Koleksi Buku</h2>
-    <div class="book-grid" id="bookList">
 
-        <div class="book-card">
-            <img src="https://covers.openlibrary.org/b/id/10594765-L.jpg" width="100%">
-            <h4>Sejarah Indonesia</h4>
+    <div class="slider-container">
+        <div class="book-grid" id="bookList">
+
+            <div class="book-card">
+                <img src="https://covers.openlibrary.org/b/id/10594765-L.jpg">
+                <h4>Sejarah Indonesia</h4>
+            </div>
+
+            <div class="book-card">
+                <img src="https://covers.openlibrary.org/b/id/10958353-L.jpg">
+                <h4>Matematika SMA</h4>
+            </div>
+
+            <div class="book-card">
+                <img src="https://covers.openlibrary.org/b/id/10523338-L.jpg">
+                <h4>Fisika Dasar</h4>
+            </div>
+
+            <div class="book-card">
+                <img src="https://covers.openlibrary.org/b/id/11153223-L.jpg">
+                <h4>Biologi Modern</h4>
+            </div>
+
+            <!-- TAMBAHAN SAMPAI 10 -->
+            <div class="book-card">
+                <img src="https://covers.openlibrary.org/b/id/10594765-L.jpg">
+                <h4>Kimia Dasar</h4>
+            </div>
+
+            <div class="book-card">
+                <img src="https://covers.openlibrary.org/b/id/10958353-L.jpg">
+                <h4>Geografi</h4>
+            </div>
+
+            <div class="book-card">
+                <img src="https://covers.openlibrary.org/b/id/10523338-L.jpg">
+                <h4>Ekonomi</h4>
+            </div>
+
+            <div class="book-card">
+                <img src="https://covers.openlibrary.org/b/id/11153223-L.jpg">
+                <h4>Sosiologi</h4>
+            </div>
+
         </div>
-
-        <div class="book-card">
-            <img src="https://covers.openlibrary.org/b/id/10958353-L.jpg" width="100%">
-            <h4>Matematika SMA</h4>
-        </div>
-
-        <div class="book-card">
-            <img src="https://covers.openlibrary.org/b/id/10523338-L.jpg" width="100%">
-            <h4>Fisika Dasar</h4>
-        </div>
-
-        <div class="book-card">
-            <img src="https://covers.openlibrary.org/b/id/11153223-L.jpg" width="100%">
-            <h4>Biologi Modern</h4>
-        </div>
-
     </div>
 </section>
+<script>
 
+/* AUTO SLIDE */
+let index = 0;
+const slider = document.getElementById("bookList");
+const cards = document.querySelectorAll(".book-card");
 
+function autoSlide(){
+    index++;
+    if(index > cards.length - 4){
+        index = 0;
+    }
+    slider.style.transform = `translateX(-${index * 220}px)`;
+}
+
+setInterval(autoSlide, 2000);
+
+</script>
 <!-- BUTTON SCROLL ATAS -->
 <button id="topBtn">↑</button>
 
@@ -442,11 +509,7 @@ document.querySelector(".search-container button").addEventListener("click", fun
     books.forEach(book => {
         let title = book.innerText.toLowerCase();
         book.style.display = title.includes(input) ? "block" : "none";
-    });
-});
-
-
-/* ===== BACK TO TOP ===== */
+    /* ===== BACK TO TOP ===== */
 const topBtn = document.getElementById("topBtn");
 
 window.onscroll = function(){
@@ -456,10 +519,11 @@ window.onscroll = function(){
 topBtn.onclick = function(){
     window.scrollTo({top:0, behavior:'smooth'});
 };
-    <footer>
+
+</script>
+<footer>
 © 2026 | Official Website of Mariah Afifa HSB Digital Library
 </footer>
 
-</script>
 </body>
 </html>
