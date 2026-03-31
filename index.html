@@ -194,9 +194,8 @@ nav a{
 
 .book-grid{
     display:flex;
-    justify-content:center;
-    gap:30px;
-    flex-wrap:wrap;
+    gap:20px;
+    transition:transform 0.5s ease;
 }
 
 .book-card{
@@ -221,11 +220,9 @@ nav a{
 
 .book-grid{
     display:flex;
-    justify-content:center;
     gap:20px;
     transition:transform 0.5s ease;
 }
-
 /* CARD RAPI */
 .book-card{
     min-width:200px;
@@ -482,7 +479,7 @@ setInterval(autoSlide, 2000);
 
 <script>
 
-/* ===== SEARCH FILTER ===== */
+/* ===== SEARCH ===== */
 document.querySelector(".search-container button").addEventListener("click", function(){
     let input = document.getElementById("searchInput").value.toLowerCase();
     let books = document.querySelectorAll(".book-card");
@@ -494,52 +491,47 @@ document.querySelector(".search-container button").addEventListener("click", fun
 });
 
 
+/* ===== SLIDER AUTO ===== */
+let index = 0;
+
+function autoSlide(){
+    const slider = document.getElementById("bookList");
+    const cards = document.querySelectorAll(".book-card");
+
+    if(!slider || cards.length === 0) return; // biar aman
+
+    index++;
+    if(index > cards.length - 4){
+        index = 0;
+    }
+
+    slider.style.transform = `translateX(-${index * 220}px)`;
+}
+
+setInterval(autoSlide, 2000);
+
+
 /* ===== BACK TO TOP ===== */
 const topBtn = document.getElementById("topBtn");
 
-window.onscroll = function(){
+window.addEventListener("scroll", function(){
     topBtn.style.display = window.scrollY > 300 ? "block" : "none";
-};
 
-topBtn.onclick = function(){
-    window.scrollTo({top:0, behavior:'smooth'});
-};
+    /* NAV EFFECT */
+    const nav = document.querySelector("nav");
+    nav.classList.toggle("scrolled", window.scrollY > 50);
 
-
-/* ===== ANIMASI SCROLL ===== */
-const fadeElements = document.querySelectorAll(".fade-in");
-
-window.addEventListener("scroll", () => {
-    fadeElements.forEach(el => {
-        const top = el.getBoundingClientRect().top;
-        if(top < window.innerHeight - 100){
+    /* ANIMASI */
+    document.querySelectorAll(".fade-in").forEach(el => {
+        if(el.getBoundingClientRect().top < window.innerHeight - 100){
             el.classList.add("show");
         }
     });
 });
 
-
-/* ===== NAVBAR EFFECT ===== */
-window.addEventListener("scroll", function(){
-    const nav = document.querySelector("nav");
-    nav.classList.toggle("scrolled", window.scrollY > 50);
-});
-
-
-/* ===== AUTO SLIDER ===== */
-let index = 0;
-const slider = document.getElementById("bookList");
-const cards = document.querySelectorAll(".book-card");
-
-function autoSlide(){
-    index++;
-    if(index > cards.length - 4){
-        index = 0;
-    }
-    slider.style.transform = `translateX(-${index * 220}px)`;
-}
-
-setInterval(autoSlide, 2000);
+topBtn.onclick = function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+};
 
 </script>
     
