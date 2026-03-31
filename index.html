@@ -151,7 +151,57 @@ nav a{
     line-height:1.8;
     color:#2d6a4f;
 }
+/* ===== VISI MISI MODERN ===== */
+.visi-misi-wrapper{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    flex-wrap:wrap;
+    perspective:1000px;
+}
 
+.visi-card, .misi-card{
+    background:white;
+    width:350px;
+    padding:40px 30px;
+    border-radius:25px;
+    box-shadow:0 15px 30px rgba(0,0,0,0.1);
+    position:relative;
+    overflow:hidden;
+    transition:all 0.6s ease;
+    
+    opacity:0;
+    transform:translateY(60px) scale(0.9);
+}
+
+/* ANIMASI MASUK */
+.visi-card.show, .misi-card.show{
+    opacity:1;
+    transform:translateY(0) scale(1);
+}
+
+/* HOVER MODERN */
+.visi-card:hover, .misi-card:hover{
+    transform:translateY(-15px) scale(1.03) rotateX(5deg);
+    box-shadow:0 25px 50px rgba(0,0,0,0.2);
+}
+
+/* GARIS ANIMASI */
+.visi-card::after, .misi-card::after{
+    content:"";
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:0%;
+    height:5px;
+    background:linear-gradient(90deg,#52b788,#2d6a4f);
+    transition:0.5s;
+}
+
+.visi-card:hover::after, .misi-card:hover::after{
+    width:100%;
+}
+    
 .visi-misi-wrapper{
     display:flex;
     justify-content:center;
@@ -573,7 +623,17 @@ window.addEventListener("scroll", function(){
 topBtn.onclick = function(){
     window.scrollTo({top:0, behavior:'smooth'});
 };
+/* ===== ANIMASI VISI MISI ===== */
+const cards = document.querySelectorAll('.visi-card, .misi-card');
 
+window.addEventListener('scroll', () => {
+    cards.forEach(card => {
+        const pos = card.getBoundingClientRect().top;
+        if(pos < window.innerHeight - 100){
+            card.classList.add('show');
+        }
+    });
+});
 </script>
     
 <footer>
