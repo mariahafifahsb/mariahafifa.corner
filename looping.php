@@ -3,27 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Looping - Afifa's Corner</title>
+<title>Looping Tabel - Afifa's Corner</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins&display=swap" rel="stylesheet">
 
 <style>
 :root{
     --dark:#1b4332;
     --mid:#2d6a4f;
-    --light:#95d5b2;
-    --accent:#52b788;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+    --light:#d8f3dc;
 }
 
 body{
     font-family:'Poppins',sans-serif;
-    background:linear-gradient(135deg,#1b4332,#2d6a4f);
+    background:#f1faee;
+    margin:0;
 }
 
 /* NAVBAR */
@@ -35,7 +29,6 @@ nav{
     justify-content:space-between;
     background:white;
     box-shadow:0 2px 10px rgba(0,0,0,0.1);
-    z-index:1000;
 }
 
 nav h2{
@@ -43,92 +36,83 @@ nav h2{
     color:var(--dark);
 }
 
-nav a{
-    text-decoration:none;
-    margin-left:25px;
-    color:var(--dark);
-    font-weight:500;
-}
-
-nav a:hover{
-    color:var(--accent);
-}
-
-/* SECTION */
+/* CONTENT */
 .section{
-    padding:120px 60px 60px;
-    text-align:center;
+    padding:120px 60px;
 }
 
 .section h2{
-    color:white;
-    font-size:40px;
-    margin-bottom:40px;
-}
-
-/* GRID */
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:25px;
-}
-
-/* CARD */
-.card{
-    background:#ffffff;
-    padding:25px;
-    border-radius:20px;
-    transition:0.3s;
-    box-shadow:0 10px 25px rgba(0,0,0,0.15);
-}
-
-.card:hover{
-    transform:translateY(-8px);
-    background:#d8f3dc;
-}
-
-/* TEXT */
-.card h3{
+    text-align:center;
     color:var(--dark);
-    margin-bottom:5px;
+    margin-bottom:30px;
 }
 
-.card p{
-    color:var(--mid);
-    font-size:14px;
+/* TABLE */
+.table-container{
+    max-height:500px;
+    overflow-y:auto;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+}
+
+th{
+    position:sticky;
+    top:0;
+    background:var(--dark);
+    color:white;
+    padding:12px;
+}
+
+td{
+    padding:10px;
+    text-align:center;
+    border-bottom:1px solid #eee;
+}
+
+/* ZEBRA */
+tr:nth-child(even){
+    background:var(--light);
+}
+
+/* HOVER */
+tr:hover{
+    background:#b7e4c7;
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
 <nav>
     <h2>Afifa's Corner</h2>
-    <div>
-        <a href="index.php">Home</a>
-        <a href="#">Koleksi</a>
-        <a href="#">About Us</a>
-        <a href="#">Admin</a>
-        <a href="looping.php">Looping</a>
-    </div>
 </nav>
 
-<!-- CONTENT -->
 <div class="section">
-    <h2>📚 Looping Belajar PHP</h2>
+    <h2>📚 Tabel Belajar PHP (1 - 1000)</h2>
 
-    <div class="grid">
-        <?php
-        for ($i = 1; $i <= 1000; $i++) {
-            echo "
-            <div class='card'>
-                <h3>Hari ke-$i</h3>
-                <p>Belajar PHP</p>
-            </div>
-            ";
-        }
-        ?>
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>No</th>
+                <th>Keterangan</th>
+            </tr>
+
+            <?php
+            for ($i = 1; $i <= 1000; $i++) {
+                echo "<tr>
+                        <td>$i</td>
+                        <td>Ini adalah hari ke-$i belajar PHP</td>
+                      </tr>";
+            }
+            ?>
+
+        </table>
     </div>
 </div>
 
