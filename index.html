@@ -360,7 +360,95 @@ footer{
     font-size:14px;
     letter-spacing:1px;
 }
+/* ===== RESPONSIVE MOBILE ===== */
+@media (max-width: 768px){
 
+    /* NAV */
+    nav{
+        padding:15px 20px;
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    nav div:last-child{
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px;
+        margin-top:10px;
+    }
+
+    nav a{
+        margin-left:0;
+        font-size:14px;
+    }
+
+    /* HERO */
+    .hero{
+        padding:0 20px;
+        height:auto;
+        min-height:100vh;
+    }
+
+    .hero-text h1{
+        font-size:32px;
+    }
+
+    /* SEARCH */
+    .search-container{
+        flex-direction:column;
+    }
+
+    .search-container input{
+        width:100%;
+    }
+
+    /* PROFILE */
+    .profile-section{
+        padding:80px 20px;
+    }
+
+    .profile-section h2{
+        font-size:28px;
+    }
+
+    /* VISI MISI */
+    .visi-misi-wrapper{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .visi-card, .misi-card{
+        width:100%;
+    }
+
+    /* KOLEKSI */
+    .collection-section{
+        padding:80px 20px;
+    }
+
+    .book-grid{
+        gap:15px;
+    }
+
+    .book-card{
+        min-width:150px;
+    }
+
+    /* VIDEO */
+    .video-section{
+        padding:60px 20px;
+    }
+
+    .video-wrapper iframe{
+        height:220px;
+    }
+
+    /* FOOTER */
+    footer{
+        font-size:12px;
+        padding:15px;
+    }
+}
 </style>
     
     <style>
