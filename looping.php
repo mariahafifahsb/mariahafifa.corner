@@ -1,120 +1,117 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Looping Tabel - Afifa's Corner</title>
+    <meta charset="UTF-8">
+    <title>Looping - Sa-Na Public Library</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 
-<style>
-:root{
-    --dark:#1b4332;
-    --mid:#2d6a4f;
-    --light:#d8f3dc;
-}
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{
+            font-family:'Playfair Display', serif;
+            background:#fdfdfd;
+        }
 
-body{
-    font-family:'Poppins',sans-serif;
-    background:#f1faee;
-    margin:0;
-}
+        /* NAVBAR (COPY STYLE ASLI) */
+        .navbar{
+            position:fixed;top:0;width:100%;
+            display:flex;justify-content:space-between;align-items:center;
+            padding:15px 5%;background:#800020;z-index:1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
 
-/* NAVBAR */
-nav{
-    position:fixed;
-    width:100%;
-    padding:20px 60px;
-    display:flex;
-    justify-content:space-between;
-    background:white;
-    box-shadow:0 2px 10px rgba(0,0,0,0.1);
-}
+        .logo{color:white;font-weight:600;}
 
-nav h2{
-    font-family:'Playfair Display',serif;
-    color:var(--dark);
-}
+        .nav-links a{
+            text-decoration:none;color:white;
+            margin:0 10px;font-size:14px;
+            transition:0.3s;
+        }
+        .nav-links a:hover{opacity:0.7;}
 
-/* CONTENT */
-.section{
-    padding:120px 60px;
-}
+        /* SECTION */
+        .section{
+            padding:120px 5% 60px;
+            background:#800020;
+            min-height:100vh;
+        }
 
-.section h2{
-    text-align:center;
-    color:var(--dark);
-    margin-bottom:30px;
-}
+        .section h2{
+            text-align:center;
+            color:white;
+            font-size:32px;
+            margin-bottom:40px;
+        }
 
-/* TABLE */
-.table-container{
-    max-height:500px;
-    overflow-y:auto;
-    border-radius:15px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.1);
-}
+        /* GRID (SEPERTI BOOK CARD) */
+        .grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+            gap:25px;
+        }
 
-table{
-    width:100%;
-    border-collapse:collapse;
-    background:white;
-}
+        /* CARD */
+        .card{
+            background:white;
+            padding:20px;
+            border-radius:15px;
+            text-align:center;
+            color:#333;
+            transition:0.3s;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+        }
 
-th{
-    position:sticky;
-    top:0;
-    background:var(--dark);
-    color:white;
-    padding:12px;
-}
+        /* HOVER ANIMATION 🔥 */
+        .card:hover{
+            transform:translateY(-10px) scale(1.03);
+            box-shadow:0 15px 35px rgba(0,0,0,0.3);
+        }
 
-td{
-    padding:10px;
-    text-align:center;
-    border-bottom:1px solid #eee;
-}
+        .card h3{
+            color:#800020;
+            font-size:18px;
+            margin-bottom:8px;
+        }
 
-/* ZEBRA */
-tr:nth-child(even){
-    background:var(--light);
-}
+        .card p{
+            font-size:14px;
+            color:#666;
+        }
 
-/* HOVER */
-tr:hover{
-    background:#b7e4c7;
-}
-</style>
+    </style>
 </head>
-
 <body>
 
-<nav>
-    <h2>Afifa's Corner</h2>
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">Sa-Na Public Library</div>
+    <div class="nav-links">
+        <a href="index.php">Home</a>
+        <a href="index.php#collection">Koleksi</a>
+        <a href="index.php#about">About Us</a>
+        <a href="admin.html">Admin</a>
+        <a href="looping.php">Looping</a>
+    </div>
 </nav>
 
-<div class="section">
-    <h2>📚 Tabel Belajar PHP (1 - 1000)</h2>
+<!-- LOOPING SECTION -->
+<section class="section">
+    <h2>Looping Belajar PHP</h2>
 
-    <div class="table-container">
-        <table>
-            <tr>
-                <th>No</th>
-                <th>Keterangan</th>
-            </tr>
-
-            <?php
-            for ($i = 1; $i <= 1000; $i++) {
-                echo "<tr>
-                        <td>$i</td>
-                        <td>Ini adalah hari ke-$i belajar PHP</td>
-                      </tr>";
-            }
-            ?>
-
-        </table>
+    <div class="grid">
+        <?php
+        for ($i = 1; $i <= 1000; $i++) {
+            echo "
+            <div class='card'>
+                <h3>Hari ke-$i</h3>
+                <p>Belajar PHP</p>
+            </div>
+            ";
+        }
+        ?>
     </div>
-</div>
+</section>
 
 </body>
 </html>
