@@ -15,14 +15,18 @@
     --accent:#52b788;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
 body{
     font-family:'Poppins',sans-serif;
-    background:#f1faee;
+    background:linear-gradient(135deg,#1b4332,#2d6a4f);
 }
 
-/* NAVBAR SAMA PERSIS */
+/* NAVBAR */
 nav{
     position:fixed;
     width:100%;
@@ -46,67 +50,52 @@ nav a{
     font-weight:500;
 }
 
-.login-btn{
-    padding:8px 20px;
-    background:var(--dark);
-    color:white;
-    border-radius:30px;
+nav a:hover{
+    color:var(--accent);
 }
 
 /* SECTION */
 .section{
     padding:120px 60px 60px;
+    text-align:center;
 }
 
 .section h2{
-    text-align:center;
-    margin-bottom:30px;
-    color:var(--dark);
-}
-
-/* TABLE STYLE */
-.table-container{
-    overflow-x:auto;
-}
-
-table{
-    width:100%;
-    border-collapse:collapse;
-    background:white;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 10px 25px rgba(0,0,0,0.1);
-}
-
-th{
-    background:var(--dark);
     color:white;
-    padding:12px;
+    font-size:40px;
+    margin-bottom:40px;
 }
 
-td{
-    padding:10px;
-    text-align:center;
-    border-bottom:1px solid #ddd;
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:25px;
 }
 
-/* ZEBRA */
-tr:nth-child(even){
-    background:#f1faee;
+/* CARD */
+.card{
+    background:#ffffff;
+    padding:25px;
+    border-radius:20px;
+    transition:0.3s;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
 }
 
-/* HOVER */
-tr:hover{
+.card:hover{
+    transform:translateY(-8px);
     background:#d8f3dc;
 }
 
-/* FOOTER */
-footer{
-    background:var(--dark);
-    color:white;
-    text-align:center;
-    padding:20px;
-    margin-top:40px;
+/* TEXT */
+.card h3{
+    color:var(--dark);
+    margin-bottom:5px;
+}
+
+.card p{
+    color:var(--mid);
+    font-size:14px;
 }
 </style>
 </head>
@@ -118,38 +107,30 @@ footer{
     <h2>Afifa's Corner</h2>
     <div>
         <a href="index.php">Home</a>
+        <a href="#">Koleksi</a>
+        <a href="#">About Us</a>
+        <a href="#">Admin</a>
         <a href="looping.php">Looping</a>
-        <a href="login.html" class="login-btn">Login</a>
     </div>
 </nav>
 
 <!-- CONTENT -->
 <div class="section">
-    <h2>📚 Tabel Belajar PHP (Hari 1 - 1000)</h2>
+    <h2>📚 Looping Belajar PHP</h2>
 
-    <div class="table-container">
-        <table>
-            <tr>
-                <th>No</th>
-                <th>Keterangan</th>
-            </tr>
-
-            <?php
-            for ($i = 1; $i <= 1000; $i++) {
-                echo "<tr>
-                        <td>$i</td>
-                        <td>Ini adalah hari ke-$i belajar PHP</td>
-                      </tr>";
-            }
-            ?>
-
-        </table>
+    <div class="grid">
+        <?php
+        for ($i = 1; $i <= 1000; $i++) {
+            echo "
+            <div class='card'>
+                <h3>Hari ke-$i</h3>
+                <p>Belajar PHP</p>
+            </div>
+            ";
+        }
+        ?>
     </div>
 </div>
-
-<footer>
-© 2026 | Afifa's Corner Digital Library
-</footer>
 
 </body>
 </html>
