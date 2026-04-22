@@ -1,109 +1,145 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <title>Looping - Sa-Na Public Library</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Looping - Afifa's Corner</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box;}
-        body{
-            font-family:'Playfair Display', serif;
-            background:#fdfdfd;
-        }
+<style>
+:root{
+    --dark:#1b4332;
+    --mid:#2d6a4f;
+    --light:#d8f3dc;
+    --accent:#52b788;
+}
 
-        /* NAVBAR (COPY STYLE ASLI) */
-        .navbar{
-            position:fixed;top:0;width:100%;
-            display:flex;justify-content:space-between;align-items:center;
-            padding:15px 5%;background:#800020;z-index:1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        .logo{color:white;font-weight:600;}
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(to bottom,#f1faee,#d8f3dc);
+}
 
-        .nav-links a{
-            text-decoration:none;color:white;
-            margin:0 10px;font-size:14px;
-            transition:0.3s;
-        }
-        .nav-links a:hover{opacity:0.7;}
+/* NAVBAR */
+nav{
+    position:fixed;
+    width:100%;
+    padding:20px 60px;
+    display:flex;
+    justify-content:space-between;
+    background:white;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    z-index:1000;
+}
 
-        /* SECTION */
-        .section{
-            padding:120px 5% 60px;
-            background:#800020;
-            min-height:100vh;
-        }
+nav h2{
+    font-family:'Playfair Display',serif;
+    color:var(--dark);
+}
 
-        .section h2{
-            text-align:center;
-            color:white;
-            font-size:32px;
-            margin-bottom:40px;
-        }
+nav a{
+    margin-left:25px;
+    text-decoration:none;
+    color:var(--dark);
+}
 
-        /* GRID (SEPERTI BOOK CARD) */
-        .grid{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-            gap:25px;
-        }
+/* SECTION */
+.section{
+    padding:120px 60px 60px;
+    text-align:center;
+}
 
-        /* CARD */
-        .card{
-            background:white;
-            padding:20px;
-            border-radius:15px;
-            text-align:center;
-            color:#333;
-            transition:0.3s;
-            box-shadow:0 5px 15px rgba(0,0,0,0.1);
-        }
+.section h2{
+    font-family:'Playfair Display',serif;
+    font-size:42px;
+    color:var(--dark);
+}
 
-        /* HOVER ANIMATION 🔥 */
-        .card:hover{
-            transform:translateY(-10px) scale(1.03);
-            box-shadow:0 15px 35px rgba(0,0,0,0.3);
-        }
+/* GARIS BAWAH */
+.line{
+    width:80px;
+    height:3px;
+    background:var(--accent);
+    margin:10px auto 40px;
+    border-radius:10px;
+}
 
-        .card h3{
-            color:#800020;
-            font-size:18px;
-            margin-bottom:8px;
-        }
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:25px;
+}
 
-        .card p{
-            font-size:14px;
-            color:#666;
-        }
+/* CARD */
+.card{
+    background:#f8f9fa;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
 
-    </style>
+.card:hover{
+    transform:translateY(-8px);
+    background:#e9f5db;
+}
+
+/* ICON */
+.icon{
+    font-size:24px;
+    color:var(--mid);
+    margin-bottom:10px;
+}
+
+/* TEXT */
+.card h3{
+    color:var(--dark);
+    margin-bottom:5px;
+}
+
+.card p{
+    font-size:13px;
+    color:#555;
+}
+</style>
 </head>
+
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar">
-    <div class="logo">Sa-Na Public Library</div>
-    <div class="nav-links">
+<nav>
+    <h2>Afifa's Corner</h2>
+    <div>
         <a href="index.php">Home</a>
-        <a href="index.php#collection">Koleksi</a>
-        <a href="index.php#about">About Us</a>
-        <a href="admin.html">Admin</a>
+        <a href="#">Admin</a>
+        <a href="#">Media</a>
+        <a href="#">Profile</a>
+        <a href="#">Event</a>
         <a href="looping.php">Looping</a>
     </div>
 </nav>
 
-<!-- LOOPING SECTION -->
-<section class="section">
+<!-- CONTENT -->
+<div class="section">
     <h2>Looping Belajar PHP</h2>
+    <div class="line"></div>
 
     <div class="grid">
         <?php
         for ($i = 1; $i <= 1000; $i++) {
             echo "
             <div class='card'>
+                <div class='icon'>
+                    <i class='fa-solid fa-book-open'></i>
+                </div>
                 <h3>Hari ke-$i</h3>
                 <p>Belajar PHP</p>
             </div>
@@ -111,7 +147,7 @@
         }
         ?>
     </div>
-</section>
+</div>
 
 </body>
 </html>
