@@ -553,6 +553,64 @@ nav.scrolled{
         transform:rotate(360deg);
     }
 }
+        /* ===== CHATBOT ===== */
+#chatbot{
+    position:fixed;
+    bottom:80px;
+    right:20px;
+    width:300px;
+    background:white;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    display:none;
+    flex-direction:column;
+    overflow:hidden;
+    z-index:999;
+}
+
+#chat-header{
+    background:#1b4332;
+    color:white;
+    padding:10px;
+    text-align:center;
+}
+
+#chat-body{
+    height:250px;
+    padding:10px;
+    overflow-y:auto;
+    font-size:14px;
+}
+
+#chat-input{
+    display:flex;
+}
+
+#chat-input input{
+    flex:1;
+    padding:10px;
+    border:none;
+}
+
+#chat-input button{
+    background:#1b4332;
+    color:white;
+    border:none;
+    padding:10px;
+    cursor:pointer;
+}
+
+#chat-toggle{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#1b4332;
+    color:white;
+    border:none;
+    padding:15px;
+    border-radius:50%;
+    cursor:pointer;
+}
 </style>
 </head>
 
@@ -635,6 +693,7 @@ nav.scrolled{
 document.getElementById("themeToggle").addEventListener("click", function(){
     document.body.classList.toggle("dark-mode");
 });
+    
 </script>
 
 <!-- ===== KOLEKSI BUKU TAMBAHAN ===== -->
@@ -759,11 +818,66 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+    /* ===== CHATBOT ===== */
+
+// buka/tutup chatbot
+const chatbot = document.getElementById("chatbot");
+document.getElementById("chat-toggle").onclick = function(){
+    chatbot.style.display = chatbot.style.display === "flex" ? "none" : "flex";
+};
+
+// kirim pesan
+function sendMessage(){
+    let input = document.getElementById("userInput");
+    let message = input.value.trim();
+
+    if(message === "") return;
+
+    let chatBody = document.getElementById("chat-body");
+
+    // tampilkan pesan user
+    chatBody.innerHTML += "<p><b>Kamu:</b> " + message + "</p>";
+
+    // balasan bot
+    let reply = getBotReply(message.toLowerCase());
+    chatBody.innerHTML += "<p><b>Bot:</b> " + reply + "</p>";
+
+    input.value = "";
+    chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+// logika balasan
+function getBotReply(msg){
+    if(msg.includes("halo") || msg.includes("hai")){
+        return "Halo! Selamat datang 😊";
+    }
+    else if(msg.includes("buku")){
+        return "Silakan cari buku di kolom pencarian 📚";
+    }
+    else if(msg.includes("login")){
+        return "Klik tombol login di atas ya 🔐";
+    }
+    else{
+        return "Maaf, saya belum mengerti 😅";
+    }
+}
 </script>
     
 <footer>
 © 2026 | Official Website of Mariah Afifa HSB Digital Library
 </footer>
+<!-- CHATBOT -->
+<div id="chatbot">
+    <div id="chat-header">Chat Perpustakaan 💬</div>
 
+    <div id="chat-body"></div>
+
+    <div id="chat-input">
+        <input type="text" id="userInput" placeholder="Ketik pesan...">
+        <button onclick="sendMessage()">Kirim</button>
+    </div>
+</div>
+
+<button id="chat-toggle">💬</button>
 </body>
 </html>
