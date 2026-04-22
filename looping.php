@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Looping - Afifa's Corner</title>
+<title>Tabel Looping - Afifa's Corner</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
@@ -16,7 +16,6 @@
 body{
     font-family:'Poppins',sans-serif;
     background:#f8f5f2;
-    color:#333;
 }
 
 /* NAVBAR */
@@ -26,74 +25,65 @@ body{
     width:100%;
     display:flex;
     justify-content:space-between;
-    align-items:center;
     padding:15px 5%;
     background:#3e1f1f;
     color:white;
-    z-index:1000;
 }
 
 .nav-links a{
     text-decoration:none;
     margin:0 10px;
     color:white;
-    font-size:14px;
 }
 
-.nav-links a:hover{
-    color:#ffd6d6;
-}
-
-/* SECTION */
+/* CONTENT */
 .section{
     padding:120px 5% 60px;
-    text-align:center;
 }
 
-.section h2{
-    font-size:30px;
-    margin-bottom:40px;
+h2{
+    text-align:center;
+    margin-bottom:30px;
     color:#3e1f1f;
 }
 
-/* GRID */
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:20px;
+/* TABLE */
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:#fffaf7;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
 }
 
-/* CARD */
-.card{
-    background:#fffaf7;
-    padding:20px;
-    border-radius:20px;
-    transition:0.3s;
-    box-shadow:0 8px 20px rgba(0,0,0,0.05);
-    border:1px solid #f1dede;
+th{
+    background:#3e1f1f;
+    color:white;
+    padding:12px;
+}
+
+td{
+    padding:10px;
+    text-align:center;
+    border-bottom:1px solid #f1dede;
+    color:#555;
+}
+
+/* ZEBRA */
+tr:nth-child(even){
+    background:#fdf2f2;
 }
 
 /* HOVER */
-.card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 15px 30px rgba(0,0,0,0.1);
-}
-
-.card h3{
-    font-size:18px;
-    color:#3e1f1f;
-}
-
-.card p{
-    font-size:13px;
-    color:#a67c7c;
+tr:hover{
+    background:#ffeaea;
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
 <div class="navbar">
     <div><b>Afifa's Corner</b></div>
     <div class="nav-links">
@@ -102,22 +92,25 @@ body{
     </div>
 </div>
 
-<!-- CONTENT -->
 <div class="section">
-    <h2>📚 Looping Belajar PHP</h2>
+    <h2>📚 Tabel Belajar PHP (1 - 1000)</h2>
 
-    <div class="grid">
+    <table>
+        <tr>
+            <th>No</th>
+            <th>Keterangan</th>
+        </tr>
+
         <?php
         for ($i = 1; $i <= 1000; $i++) {
-            echo "
-            <div class='card'>
-                <h3>Hari ke-$i</h3>
-                <p>Belajar PHP</p>
-            </div>
-            ";
+            echo "<tr>
+                    <td>$i</td>
+                    <td>Ini adalah hari ke-$i belajar PHP</td>
+                  </tr>";
         }
         ?>
-    </div>
+
+    </table>
 </div>
 
 </body>
