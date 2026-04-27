@@ -611,6 +611,85 @@ nav.scrolled{
     border-radius:50%;
     cursor:pointer;
 }
+        .navbar{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+/* LINK */
+.navbar a{
+    text-decoration:none;
+    color:#555;
+    font-size:14px;
+    padding:8px 12px;
+    border-radius:8px;
+    transition:0.3s;
+}
+
+.navbar a:hover{
+    background:#f0f0f0;
+}
+
+/* DROPDOWN */
+.dropdown{
+    position:relative;
+}
+
+.dropbtn{
+    background:none;
+    border:none;
+    font-size:14px;
+    cursor:pointer;
+    padding:8px 12px;
+    border-radius:8px;
+    color:#555;
+}
+
+.dropbtn:hover{
+    background:#f0f0f0;
+}
+
+.dropdown-content{
+    display:none;
+    position:absolute;
+    top:40px;
+    background:white;
+    min-width:180px;
+    border-radius:10px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    overflow:hidden;
+}
+
+.dropdown-content a{
+    display:block;
+    padding:10px;
+    color:#333;
+}
+
+.dropdown-content a:hover{
+    background:#e6fff5;
+}
+
+/* SHOW DROPDOWN */
+.dropdown:hover .dropdown-content{
+    display:block;
+}
+
+/* LOGIN BUTTON (UTAMA) */
+.login-btn{
+    background:linear-gradient(135deg,#52b788,#40916c);
+    color:white !important;
+    font-weight:600;
+    padding:8px 18px;
+    border-radius:25px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+
+.login-btn:hover{
+    background:linear-gradient(135deg,#40916c,#2d6a4f);
+    transform:scale(1.05);
+}
 </style>
 </head>
 
