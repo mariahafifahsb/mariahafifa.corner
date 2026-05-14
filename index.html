@@ -611,6 +611,36 @@ nav.scrolled{
     border-radius:50%;
     cursor:pointer;
 }
+        .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: white;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    z-index: 999;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    display: block;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 </style>
 </head>
 
@@ -628,9 +658,12 @@ nav.scrolled{
         <a href="#video">Media</a>
         <a href="#profile">Profile</a>
         <a href="event.html" target="_blank">Event</a>
-      <a href="https://mariahafifahsb.ct.ws/looping.php">Looping</a>
-    <a href="https://mariahafifahsb.ct.ws/kalkulator.php">Kalkulator</a>
-        <a href="https://mariahafifahsb.ct.ws/anggota.php">anggota</a>
+    <div class="dropdown">
+    <a href="#">PHP ▼</a>
+    <div class="dropdown-content">
+        <a href="https://mariahafifahsb.ct.ws/looping.php">Looping</a>
+        <a href="https://mariahafifahsb.ct.ws/kalkulator.php">Kalkulator</a>
+        <a href="https://mariahafifahsb.ct.ws/anggota.php">Anggota</a>
         <a href="contact.html" target="_blank" class="contact-btn">Contact</a>
         <a href="https://mariahafifahsb.ct.ws/login.php">login</a>
         <button id="themeToggle" style="margin-left:20px; padding:8px 15px; border:none; border-radius:20px; cursor:pointer;">🌙</button>
