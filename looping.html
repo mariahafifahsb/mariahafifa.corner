@@ -62,7 +62,7 @@ nav a{
     color:var(--dark);
 }
 
-/* GARIS BAWAH */
+/* GARIS */
 .line{
     width:80px;
     height:3px;
@@ -99,7 +99,6 @@ nav a{
     margin-bottom:10px;
 }
 
-/* TEXT */
 .card h3{
     color:var(--dark);
     margin-bottom:5px;
@@ -118,12 +117,12 @@ nav a{
 <nav>
     <h2>Afifa's Corner</h2>
     <div>
-        <a href="index.php">Home</a>
+        <a href="index.html">Home</a>
         <a href="#">Admin</a>
         <a href="#">Media</a>
         <a href="#">Profile</a>
         <a href="#">Event</a>
-        <a href="looping.php">Looping</a>
+        <a href="looping.html">Looping</a>
     </div>
 </nav>
 
@@ -132,22 +131,26 @@ nav a{
     <h2>Looping Belajar PHP</h2>
     <div class="line"></div>
 
-    <div class="grid">
-        <?php
-        for ($i = 1; $i <= 1000; $i++) {
-            echo "
-            <div class='card'>
-                <div class='icon'>
-                    <i class='fa-solid fa-book-open'></i>
-                </div>
-                <h3>Hari ke-$i</h3>
-                <p>Belajar PHP</p>
-            </div>
-            ";
-        }
-        ?>
-    </div>
+    <div class="grid" id="gridLoop"></div>
 </div>
+
+<script>
+let isi = "";
+
+for(let i=1; i<=1000; i++){
+    isi += `
+    <div class="card">
+        <div class="icon">
+            <i class="fa-solid fa-book-open"></i>
+        </div>
+        <h3>Hari ke-${i}</h3>
+        <p>Belajar PHP</p>
+    </div>
+    `;
+}
+
+document.getElementById("gridLoop").innerHTML = isi;
+</script>
 
 </body>
 </html>
