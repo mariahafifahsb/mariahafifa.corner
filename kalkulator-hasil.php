@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tugas 2 - Kalkulator Hasil PHP</title>
+  <title>Hasil Kalkulator - Afifa</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -19,29 +19,13 @@
       display: flex;
       flex-direction: column;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(180deg, #f0f7ff, #ffffff);
-      color: #2c2c2c;
-    }
-
-    /* TRANSISI INTRO */
-    .intro {
-      position: absolute;
-      inset: 0;
-      background: #f0f7ff; 
-      z-index: 100;
-      pointer-events: none;
-      animation: fadeOutTransition 1.0s ease-in-out forwards;
-      animation-delay: 0.2s;
-    }
-
-    @keyframes fadeOutTransition {
-      from { opacity: 1; }
-      to { opacity: 0; visibility: hidden; }
+      background: linear-gradient(180deg, #e6fff5, #ffffff);
+      color: #1b4332;
     }
 
     /* HEADER */
     header {
-      background-color: #1e3a8a;
+      background: linear-gradient(90deg, #2d6a4f, #40916c);
       padding: 20px 5%;
       color: white;
       display: flex;
@@ -49,28 +33,8 @@
       align-items: center;
       position: sticky;
       top: 0;
-      z-index: 900;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      animation: slideDown 0.5s ease-out;
-    }
-
-    @keyframes slideDown {
-      from { transform: translateY(-100%); }
-      to { transform: translateY(0); }
-    }
-
-    .logo-title {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-    }
-
-    .logo {
-      width: 70px;
-      height: 70px;
-      object-fit: contain;
-      filter: brightness(0) invert(1); 
-      margin-right: -5px;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
     header h1 {
@@ -78,74 +42,94 @@
       font-weight: 700;
     }
 
-    /* NAVIGASI */
-    nav {
-      display: flex;
-      gap: 10px;
-    }
-
     nav a {
       text-decoration: none;
-      font-weight: 500;
-      color: #bfdbfe;
+      color: #d8f3dc;
+      margin-left: 15px;
       font-size: 14px;
+      padding: 6px 10px;
+      border-radius: 6px;
       transition: 0.3s;
-      padding: 8px 12px;
-      border-radius: 8px;
     }
 
-    nav a:hover, nav a.active {
+    nav a:hover {
+      background: rgba(255,255,255,0.2);
       color: white;
-      background: rgba(255,255,255,0.1);
     }
 
-    /* MAIN CONTENT */
+    /* MAIN */
     main {
       flex: 1;
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
     }
 
-    .container-biru {
-      background-color: #4472C4; /* Warna biru */
+    .card {
+      background: linear-gradient(180deg, #52b788, #40916c);
+      padding: 30px;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 420px;
       color: white;
-      padding: 20px;
-      display: block; 
-      min-width: 100%;
-      max-width: 500px;
-      line-height: 1.6;
-      border: 1px solid #3b63a8;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      animation: fadeIn 0.6s ease;
+      text-align: left;
     }
 
-    .text-list {
-      font-weight: bold;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card h2 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .result {
+      font-size: 18px;
+      margin-top: 15px;
+      font-weight: 600;
+    }
+
+    .highlight {
+      color: #ffeb3b;
+    }
+
+    hr {
+      border: 0.5px solid rgba(255,255,255,0.3);
+      margin: 15px 0;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 15px;
+      text-decoration: none;
+      color: #d8f3dc;
       font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .back-btn:hover {
+      color: white;
+      text-decoration: underline;
     }
 
     /* FOOTER */
     footer {
-      background-color: #1e3a8a;
+      background: linear-gradient(90deg, #2d6a4f, #40916c);
       text-align: center;
-      padding: 40px 20px;
-      font-size: 14px;
-      color: #bfdbfe;
-      margin-top: auto;
-      width: 100%;
+      padding: 20px;
+      font-size: 13px;
+      color: #d8f3dc;
     }
 
     /* RESPONSIVE */
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        gap: 15px;
+    @media (max-width: 500px) {
+      .card {
         padding: 20px;
-      }
-      nav {
-        flex-wrap: wrap;
-        justify-content: center;
       }
     }
   </style>
@@ -153,63 +137,68 @@
 
 <body>
 
-
-  <header></header>
+  <header>
+    <h1>Kalkulator PHP</h1>
+    <nav>
+      <a href="kalkulator.php">Home</a>
+    </nav>
+  </header>
 
   <main>
-    <h2>Hasil Perhitungan</h2>
-    <div class="container-biru">
-        <div class="text-list">
-            <?php
-            // Validasi: Jika tidak ada data POST, balikkan ke halaman input
-            if (!isset($_POST['hitung'])) {
-                echo "<script>window.location.href='kalkulator.php';</script>";
-                exit;
-            }
+    <div class="card">
+      <h2>Hasil Perhitungan</h2>
 
-            // 1. Tangkap data
-            $bil1 = $_POST['angka1'];
-            $bil2 = $_POST['angka2'];
-            $operasi = $_POST['operator'];
-            $hasil = 0;
-            $tanda = "";
+      <?php
+      if (!isset($_POST['hitung'])) {
+          echo "<script>window.location.href='kalkulator.php';</script>";
+          exit;
+      }
 
-            // 2. Logika
-            if ($operasi == "tambah") {
-                $hasil = $bil1 + $bil2;
-                $tanda = "+";
-            } elseif ($operasi == "kurang") {
-                $hasil = $bil1 - $bil2;
-                $tanda = "-";
-            } elseif ($operasi == "kali") {
-                $hasil = $bil1 * $bil2;
-                $tanda = "x";
-            } elseif ($operasi == "bagi") {
-                if ($bil2 != 0) {
-                    $hasil = $bil1 / $bil2;
-                    $tanda = "/";
-                } else {
-                    $hasil = "Tak terhingga (Error: Bagi 0)";
-                    $tanda = "/";
-                }
-            }
+      $bil1 = $_POST['angka1'];
+      $bil2 = $_POST['angka2'];
+      $operasi = $_POST['operator'];
+      $hasil = 0;
+      $tanda = "";
 
-            // 3. Tampilkan
-            echo "Bilangan 1 &nbsp;: " . $bil1 . "<br>";
-            echo "Bilangan 2 &nbsp;: " . $bil2 . "<br>";
-            echo "Operasi &nbsp;&nbsp;&nbsp;&nbsp;: " . ucfirst($operasi) . "<br>";
-            echo "<hr style='border: 0.5px solid rgba(255,255,255,0.3); margin: 15px 0;'>";
-            echo "<h3 style='font-size: 20px;'>Hasil: $bil1 $tanda $bil2 = <span style='color: #ffeb3b;'>$hasil</span></h3>";
-            ?>
-            <br>
-            <a href="kalkulator.php" style="color: #bfdbfe; text-decoration: none; font-size: 13px;">← Kembali Hitung</a>
-        </div>
+      if ($operasi == "tambah") {
+          $hasil = $bil1 + $bil2;
+          $tanda = "+";
+      } elseif ($operasi == "kurang") {
+          $hasil = $bil1 - $bil2;
+          $tanda = "-";
+      } elseif ($operasi == "kali") {
+          $hasil = $bil1 * $bil2;
+          $tanda = "×";
+      } elseif ($operasi == "bagi") {
+          if ($bil2 != 0) {
+              $hasil = $bil1 / $bil2;
+              $tanda = "÷";
+          } else {
+              $hasil = "Error (Tidak bisa dibagi 0)";
+              $tanda = "÷";
+          }
+      }
+
+      echo "Bilangan 1 : $bil1 <br>";
+      echo "Bilangan 2 : $bil2 <br>";
+      echo "Operasi : " . ucfirst($operasi) . "<br>";
+      ?>
+
+      <hr>
+
+      <div class="result">
+        Hasil: 
+        <?php echo "$bil1 $tanda $bil2 = <span class='highlight'>$hasil</span>"; ?>
+      </div>
+
+      <a href="kalkulator.php" class="back-btn">← Kembali Hitung</a>
+
     </div>
   </main>
 
-  <footer></footer>
-
-  <script src="script.js"></script>
+  <footer>
+    © 2026 Afifa's Project | Kalkulator PHP
+  </footer>
 
 </body>
 </html>
