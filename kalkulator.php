@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tugas 2 - Kalkulator PHP</title>
+  <title>Kalkulator PHP - Afifa</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -19,29 +19,13 @@
       display: flex;
       flex-direction: column;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(180deg, #f0f7ff, #ffffff);
-      color: #2c2c2c;
-    }
-
-    /* TRANSISI INTRO */
-    .intro {
-      position: absolute;
-      inset: 0;
-      background: #f0f7ff; 
-      z-index: 100;
-      pointer-events: none;
-      animation: fadeOutTransition 1.0s ease-in-out forwards;
-      animation-delay: 0.2s;
-    }
-
-    @keyframes fadeOutTransition {
-      from { opacity: 1; }
-      to { opacity: 0; visibility: hidden; }
+      background: linear-gradient(180deg, #e6fff5, #ffffff);
+      color: #1b4332;
     }
 
     /* HEADER */
     header {
-      background-color: #1e3a8a;
+      background: linear-gradient(90deg, #2d6a4f, #40916c);
       padding: 20px 5%;
       color: white;
       display: flex;
@@ -49,28 +33,8 @@
       align-items: center;
       position: sticky;
       top: 0;
-      z-index: 900;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      animation: slideDown 0.5s ease-out;
-    }
-
-    @keyframes slideDown {
-      from { transform: translateY(-100%); }
-      to { transform: translateY(0); }
-    }
-
-    .logo-title {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-    }
-
-    .logo {
-      width: 70px;
-      height: 70px;
-      object-fit: contain;
-      filter: brightness(0) invert(1); 
-      margin-right: -5px;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
     header h1 {
@@ -78,74 +42,100 @@
       font-weight: 700;
     }
 
-    /* NAVIGASI */
-    nav {
-      display: flex;
-      gap: 10px;
-    }
-
     nav a {
       text-decoration: none;
-      font-weight: 500;
-      color: #bfdbfe;
+      color: #d8f3dc;
+      margin-left: 15px;
       font-size: 14px;
+      padding: 6px 10px;
+      border-radius: 6px;
       transition: 0.3s;
-      padding: 8px 12px;
-      border-radius: 8px;
     }
 
-    nav a:hover, nav a.active {
+    nav a:hover {
+      background: rgba(255,255,255,0.2);
       color: white;
-      background: rgba(255,255,255,0.1);
     }
 
-    /* MAIN CONTENT */
+    /* MAIN */
     main {
       flex: 1;
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
     }
 
-    .container-biru {
-      background-color: #4472C4; /* Warna biru */
+    .card {
+      background: linear-gradient(180deg, #52b788, #40916c);
+      padding: 30px;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 420px;
       color: white;
-      padding: 20px;
-      display: block; 
-      min-width: 100%;
-      max-width: 500px;
-      line-height: 1.6;
-      border: 1px solid #3b63a8;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      animation: fadeIn 0.6s ease;
     }
 
-    .text-list {
-      font-weight: bold;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card h2 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    label {
       font-size: 14px;
+      font-weight: 500;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+    }
+
+    input:focus, select:focus {
+      box-shadow: 0 0 0 2px #95d5b2;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #1b4332;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #081c15;
+      transform: scale(1.03);
     }
 
     /* FOOTER */
     footer {
-      background-color: #1e3a8a;
+      background: linear-gradient(90deg, #2d6a4f, #40916c);
       text-align: center;
-      padding: 40px 20px;
-      font-size: 14px;
-      color: #bfdbfe;
-      margin-top: auto;
-      width: 100%;
+      padding: 20px;
+      font-size: 13px;
+      color: #d8f3dc;
     }
 
     /* RESPONSIVE */
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        gap: 15px;
+    @media (max-width: 500px) {
+      .card {
         padding: 20px;
-      }
-      nav {
-        flex-wrap: wrap;
-        justify-content: center;
       }
     }
   </style>
@@ -153,44 +143,43 @@
 
 <body>
 
-
-  <header></header>
+  <header>
+    <h1>Kalkulator PHP</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+    </nav>
+  </header>
 
   <main>
-    <h2>Kalkulator Sederhana</h2>
-    <div class="container-biru" style="min-width: 400px;">
-        <form action="kalkulator-hasil.php" method="POST">
-            <div style="margin-bottom: 15px;">
-                <label>Bilangan 1:</label><br>
-                <input type="number" name="angka1" required style="padding: 8px; border-radius: 5px; border: none; width: 100%;">
-            </div>
+    <div class="card">
+      <h2>Kalkulator Sederhana</h2>
 
-            <div style="margin-bottom: 15px;">
-                <label>Bilangan 2:</label><br>
-                <input type="number" name="angka2" required style="padding: 8px; border-radius: 5px; border: none; width: 100%;">
-            </div>
+      <form action="kalkulator-hasil.php" method="POST">
 
-            <div style="margin-bottom: 15px;">
-                <label>Operasi:</label><br>
-                <select name="operator" style="padding: 8px; border-radius: 5px; width: 100%;">
-                    <option value="tambah">Tambah (+)</option>
-                    <option value="kurang">Kurang (-)</option>
-                    <option value="kali">Kali (x)</option>
-                    <option value="bagi">Bagi (/)</option>
-                </select>
-            </div>
+        <label>Bilangan 1</label>
+        <input type="number" name="angka1" required>
 
-            <button type="submit" name="hitung" style="padding: 10px 20px; background: #1e3a8a; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
-                Hitung Sekarang
-            </button>
-        </form>
+        <label>Bilangan 2</label>
+        <input type="number" name="angka2" required>
+
+        <label>Operasi</label>
+        <select name="operator">
+          <option value="tambah">Tambah (+)</option>
+          <option value="kurang">Kurang (-)</option>
+          <option value="kali">Kali (×)</option>
+          <option value="bagi">Bagi (÷)</option>
+        </select>
+
+        <button type="submit" name="hitung">Hitung Sekarang</button>
+
+      </form>
     </div>
-
   </main>
 
-  <footer></footer>
-
-  <script src="script.js"></script>
+  <footer>
+    © 2026 Afifa's Project | Kalkulator PHP
+  </footer>
 
 </body>
 </html>
