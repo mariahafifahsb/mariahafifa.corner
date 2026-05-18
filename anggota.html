@@ -1,5 +1,3 @@
-<?php include "koneksi.php"; ?>
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -15,7 +13,6 @@ body{
     margin:0;
 }
 
-/* HEADER */
 header{
     padding:20px 40px;
     font-weight:bold;
@@ -23,17 +20,14 @@ header{
     color:#1b4332;
 }
 
-/* CONTAINER */
 .container{
     padding:40px;
 }
 
-/* TITLE */
 h2{
     color:#1b4332;
 }
 
-/* BUTTON */
 .btn{
     background:linear-gradient(135deg,#52b788,#40916c);
     color:white;
@@ -42,7 +36,6 @@ h2{
     text-decoration:none;
 }
 
-/* CARD */
 .card{
     background:white;
     padding:25px;
@@ -51,7 +44,6 @@ h2{
     margin-top:20px;
 }
 
-/* TABLE */
 table{
     width:100%;
     border-collapse:collapse;
@@ -68,16 +60,15 @@ td{
     border-bottom:1px solid #eee;
 }
 
-/* BUTTON HAPUS */
 .hapus{
     background:#d00000;
     color:white;
     padding:6px 12px;
     border-radius:10px;
-    text-decoration:none;
+    border:none;
+    cursor:pointer;
 }
 </style>
-
 </head>
 
 <body>
@@ -87,7 +78,7 @@ td{
 <div class="container">
 <h2>Data Anggota</h2>
 
-<a href="tambah.php" class="btn">+ Tambah Anggota</a>
+<a href="tambah.html" class="btn">+ Tambah Anggota</a>
 
 <div class="card">
 <table>
@@ -98,29 +89,44 @@ td{
 <th>No HP</th>
 <th>Aksi</th>
 </tr>
-
-<?php
-$no=1;
-$data = mysqli_query($conn,"SELECT * FROM anggota");
-
-while($d = mysqli_fetch_assoc($data)){
-?>
-
-<tr>
-<td><?= $no++; ?></td>
-<td><?= $d['nama']; ?></td>
-<td><?= $d['email']; ?></td>
-<td><?= $d['no_hp']; ?></td>
-<td>
-<a href="hapus.php?id=<?= $d['id']; ?>" class="hapus" onclick="return confirm('Hapus data?')">Hapus</a>
-</td>
-</tr>
-
-<?php } ?>
-
+<tbody id="dataAnggota"></tbody>
 </table>
 </div>
 </div>
+
+<script>
+let anggota = JSON.parse(localStorage.getItem("anggota")) || [
+    {nama:"Mariah Afifa", email:"mariah@gmail.com", hp:"081234567890"},
+    {nama:"Siti Aisyah", email:"aisyah@gmail.com", hp:"082134567890"},
+    {nama:"Rahmat Hidayat", email:"rahmat@gmail.com", hp:"083234567890"},
+    {nama:"Dewi Lestari", email:"dewi@gmail.com", hp:"084334567890"}
+];
+
+function tampilkanData(){
+    let isi = "";
+    anggota.forEach((a,i)=>{
+        isi += `
+        <tr>
+            <td>${i+1}</td>
+            <td>${a.nama}</td>
+            <td>${a.email}</td>
+            <td>${a.hp}</td>
+            <td><button class="hapus" onclick="hapusData(${i})">Hapus</button></td>
+        </tr>`;
+    });
+    document.getElementById("dataAnggota").innerHTML = isi;
+    localStorage.setItem("anggota",JSON.stringify(anggota));
+}
+
+function hapusData(index){
+    if(confirm("Hapus data?")){
+        anggota.splice(index,1);
+        tampilkanData();
+    }
+}
+
+tampilkanData();
+</script>
 
 </body>
 </html>
