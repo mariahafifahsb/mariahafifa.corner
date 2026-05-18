@@ -1,9 +1,15 @@
-<?php include "koneksi.php"; ?>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Tambah Anggota</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
 <style>
 body{
-    font-family:Poppins;
-    background:linear-gradient(#e6fff5,#fff);
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(#e6fff5,#ffffff);
     display:flex;
     justify-content:center;
     align-items:center;
@@ -12,51 +18,69 @@ body{
 
 .box{
     background:white;
-    padding:30px;
+    padding:35px;
+    width:400px;
     border-radius:20px;
-    width:350px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    box-shadow:0 10px 20px rgba(0,0,0,0.1);
+}
+
+h2{
+    color:#1b4332;
+    text-align:center;
 }
 
 input{
     width:100%;
-    padding:10px;
-    margin:8px 0;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ddd;
     border-radius:10px;
-    border:1px solid #ccc;
 }
 
 button{
     width:100%;
-    padding:10px;
+    padding:12px;
+    border:none;
+    border-radius:12px;
     background:#40916c;
     color:white;
-    border:none;
-    border-radius:20px;
+    cursor:pointer;
 }
 </style>
+</head>
+<body>
 
 <div class="box">
 <h2>Tambah Anggota</h2>
 
-<form method="POST">
-<input type="text" name="nama" placeholder="Nama">
-<input type="text" name="email" placeholder="Email">
-<input type="text" name="no_hp" placeholder="No HP">
+<input type="text" id="nama" placeholder="Nama">
+<input type="email" id="email" placeholder="Email">
+<input type="text" id="hp" placeholder="No HP">
 
-<button name="simpan">Simpan</button>
-</form>
-
-<?php
-if(isset($_POST['simpan'])){
-    mysqli_query($conn,"INSERT INTO anggota VALUES(
-        '',
-        '$_POST[nama]',
-        '$_POST[email]',
-        '$_POST[no_hp]'
-    )");
-
-    echo "Berhasil! <a href='anggota.php'>Kembali</a>";
-}
-?>
+<button onclick="simpan()">Simpan</button>
 </div>
+
+<script>
+function simpan(){
+    let nama = document.getElementById("nama").value;
+    let email = document.getElementById("email").value;
+    let hp = document.getElementById("hp").value;
+
+    if(nama=="" || email=="" || hp==""){
+        alert("Input tidak lengkap!");
+        return;
+    }
+
+    let anggota = JSON.parse(localStorage.getItem("anggota")) || [];
+
+    anggota.push({nama,email,hp});
+
+    localStorage.setItem("anggota",JSON.stringify(anggota));
+
+    alert("Data berhasil ditambahkan!");
+    window.location="data.html";
+}
+</script>
+
+</body>
+</html>
